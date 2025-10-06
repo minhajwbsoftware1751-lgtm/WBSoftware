@@ -59,14 +59,14 @@ const Invoice = () => {
     const [closinginfoopen, setClosingInfoOpen] = useState(false);
 
     return (
-        <div className="flex justify-between gap-3">
+        <div className="overflow-y-hidden">
             <div
-                className={`transition-all duration-300 ${companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen ? "w-8/12 ml-1": "w-8/12 mx-auto"}`}>
+                className={`${companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen ? "w-8/12": "mx-auto"}`}>
                 <div className="flex justify-between items-center">
                     <img
                         src="https://wbsoftwares.com/img/logo.4b604ac6.png"
                         alt="profile"
-                        className="h-12"
+                        className="pt-4"
                     />
                     <div className="flex items-center gap-4">
                         <div>
@@ -105,44 +105,44 @@ const Invoice = () => {
 
                         <tbody>
                             <tr>
-                                <td className="border-gray-300 px-4 py-2 text-left w-[15%]">Company</td>
-                                <td className="border-gray-300 px-4 py-2 text-left w-[35%] break-words">
+                                <td className="border-gray-300 px-4  text-left w-[15%]">Company</td>
+                                <td className="border-gray-300 px-4  text-left w-[35%] break-words">
                                     {companyData.name}
                                 </td>
-                                <td className="border-l border-gray-300 px-4 py-2 text-left w-[15%]">Customer</td>
-                                <td className="border-gray-300 px-4 py-2 text-left w-[35%] break-words">
+                                <td className="border-l border-gray-300 px-4  text-left w-[15%]">Customer</td>
+                                <td className="border-gray-300 px-4  text-left w-[35%] break-words">
                                     {companyData.customername}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4 py-2 text-left">Email</td>
-                                <td className="border-gray-300 px-4 py-2 text-left break-words">
+                                <td className="border-gray-300 px-4  text-left">Email</td>
+                                <td className="border-gray-300 px-4  text-left break-words">
                                     {companyData.email}
                                 </td>
-                                <td className="border-l border-gray-300 px-4 py-2 text-left">
-                                    Customer ID
+                                <td className="border-l border-gray-300 px-4  text-left">
+                                    CustomerID
                                 </td>
-                                <td className="border-gray-300 px-4 py-2 text-left">
+                                <td className="border-gray-300 px-4  text-left">
                                     {companyData.customerid}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4 py-2 text-left">Phone</td>
-                                <td className="border-gray-300 px-4 py-2 text-left">
+                                <td className="border-gray-300 px-4  text-left">Phone</td>
+                                <td className="border-gray-300 px-4  text-left">
                                     {companyData.phone}
                                 </td>
-                                <td className="border-l border-gray-300 px-4 py-2 text-left">Phone</td>
-                                <td className="border-gray-300 px-4 py-2 text-left">
+                                <td className="border-l border-gray-300 px-4  text-left">Phone</td>
+                                <td className="border-gray-300 px-4  text-left">
                                     {companyData.customerphone}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4 py-2 text-left">Address</td>
-                                <td className="border-gray-300 px-4 py-2 text-left break-words">
+                                <td className="border-gray-300 px-4  text-left">Address</td>
+                                <td className="border-gray-300 px-4  text-left break-words">
                                     {companyData.address}
                                 </td>
-                                <td className="border-l border-gray-300 px-4 py-2 text-left">Address</td>
-                                <td className="border-gray-300 px-4 py-2 text-left break-words">
+                                <td className="border-l border-gray-300 px-4  text-left">Address</td>
+                                <td className="border-gray-300 px-4  text-left break-words">
                                     {companyData.customeraddress}
                                 </td>
                             </tr>
@@ -152,38 +152,38 @@ const Invoice = () => {
                             </tr>
 
                             <tr>
-                                <td className="border-gray-300 px-4 py-2 text-left">Invoice Date</td>
-                                <td className="border-gray-300 px-4 py-2 text-left">
+                                <td className="border-gray-300 px-4  text-left">Invoice Date</td>
+                                <td className="border-gray-300 px-4  text-left">
                                     {companyData.date}
                                 </td>
-                                <td className="border-l border-gray-300 px-4 py-2 text-left">
+                                <td className="border-l border-gray-300 px-4  text-left">
                                     Payment Date
                                 </td>
-                                <td className="border-gray-300 px-4 py-2 text-left">
+                                <td className="border-gray-300 px-4  text-left">
                                     {companyData.paymentdate}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4 py-2 text-left">Invoice ID</td>
-                                <td className="border-gray-300 px-4 py-2 text-left">
+                                <td className="border-gray-300 px-4  text-left">Invoice ID</td>
+                                <td className="border-gray-300 px-4  text-left">
                                     {companyData.invoiceid}
                                 </td>
-                                <td className="border-l border-gray-300 px-4 py-2 text-left">
+                                <td className="border-l border-gray-300 px-4  text-left">
                                     Receipt ID
                                 </td>
-                                <td className="border-gray-300 px-4 py-2 text-left">
+                                <td className="border-gray-300 px-4  text-left">
                                     {companyData.receiptid}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4 py-2 text-left">Salesman</td>
-                                <td className="border-gray-300 px-4 py-2 text-left break-words">
+                                <td className="border-gray-300 px-4  text-left">Salesman</td>
+                                <td className="border-gray-300 px-4  text-left break-words">
                                     {companyData.salesman}
                                 </td>
-                                <td className="border-l border-gray-300 px-4 py-2 text-left">
+                                <td className="border-l border-gray-300 px-4  text-left">
                                     Payment Method
                                 </td>
-                                <td className="border-gray-300 px-4 py-2 text-left">
+                                <td className="border-gray-300 px-4  text-left">
                                     {companyData.paymentmethod}
                                 </td>
                             </tr>
