@@ -62,10 +62,7 @@ const Invoice = () => {
         <div className="flex justify-between gap-3">
             <div
             className={`transition-all duration-300 ${
-                companyinfoopen ||
-                productinfoopen ||
-                paymentinfoopen ||
-                bankinfoopen ||
+                companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen ||
                 closinginfoopen
                     ? "w-8/12 ml-1" 
                     : "w-8/12 mx-auto"

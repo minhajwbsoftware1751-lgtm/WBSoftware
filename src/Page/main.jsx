@@ -1,4 +1,3 @@
-import Sidebar from './Sidebar/Sidebar';
 import Invoice from './Invoice/Invoice';
 const Main = () => {
    
