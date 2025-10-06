@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { RiCloseLargeLine } from "react-icons/ri";
 
-const BankInfo = ({bankData, setBankData}) => {
+const BankInfo = ({ bankData, setBankData, setBankInfoOpen }) => {
     return (
-       <div className="max-w-2xl mx-auto p-5">
-           
-            <h1 className="text-center pb-5 border-b font-bold text-4xl mb-6">Bank Information</h1>
+        <div className="max-w-2xl mx-auto p-5">
+            <div className="flex justify-between items-center mb-6">
+                <h1 className="text-center font-bold text-4xl">Bank Information</h1>
+                <button onClick={() => setBankInfoOpen(false)}>
+                    <RiCloseLargeLine size={30} />
+                </button>
+            </div>
             <div className="flex flex-col gap-5 text-2xl">
                 <label className="flex flex-col">
                     Bank Name:
@@ -20,19 +25,19 @@ const BankInfo = ({bankData, setBankData}) => {
 
                 <label className="flex flex-col">
                     Branch:
-                     <input
+                    <input
                         type="text"
                         className="border p-2 rounded mt-1 text-base"
-                        value={bankData. branch}
+                        value={bankData.branch}
                         onChange={(e) =>
-                            setBankData({ ...bankData,  branch: e.target.value })
+                            setBankData({ ...bankData, branch: e.target.value })
                         }
                     />
                 </label>
 
                 <label className="flex flex-col">
                     Account No:
-                     <input
+                    <input
                         type="number"
                         className="border p-2 rounded mt-1 text-base"
                         value={bankData.accountno}
@@ -44,7 +49,7 @@ const BankInfo = ({bankData, setBankData}) => {
 
                 <label className="flex flex-col">
                     Account Name:
-                     <input
+                    <input
                         type="text"
                         className="border p-2 rounded mt-1 text-base"
                         value={bankData.accountname}
@@ -59,7 +64,7 @@ const BankInfo = ({bankData, setBankData}) => {
             <div className="flex flex-col gap-5 text-2xl">
                 <label className="flex flex-col">
                     Transation ID:
-                     <input
+                    <input
                         type="number"
                         className="border p-2 rounded mt-1 text-base"
                         value={bankData.transationid}
@@ -71,7 +76,7 @@ const BankInfo = ({bankData, setBankData}) => {
 
                 <label className="flex flex-col">
                     Transation From:
-                     <input
+                    <input
                         type="text"
                         className="border p-2 rounded mt-1 text-base"
                         value={bankData.transationfrom}
@@ -83,7 +88,7 @@ const BankInfo = ({bankData, setBankData}) => {
 
                 <label className="flex flex-col">
                     Transaction Type:
-                     <input
+                    <input
                         type="text"
                         className="border p-2 rounded mt-1 text-base"
                         value={bankData.transactiontype}

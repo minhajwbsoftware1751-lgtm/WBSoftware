@@ -60,7 +60,17 @@ const Invoice = () => {
 
     return (
         <div className="flex justify-between gap-3">
-            <div className="w-8/12 ml-1">
+            <div
+            className={`transition-all duration-300 ${
+                companyinfoopen ||
+                productinfoopen ||
+                paymentinfoopen ||
+                bankinfoopen ||
+                closinginfoopen
+                    ? "w-8/12 ml-1" 
+                    : "w-8/12 mx-auto"
+            }`}
+        >
                 <div className="flex justify-between items-center">
                     <img
                         src="https://wbsoftwares.com/img/logo.4b604ac6.png"
@@ -355,48 +365,51 @@ const Invoice = () => {
                 </div>
 
             </div>
-            <div className="absolute right-0 top-0 w-4/12 h-full border-2 border-gray-300 bg-white overflow-y-scroll">
-                {companyinfoopen && (
-                    <CompanyInfo
-                        open={companyinfoopen}
-                        setCompanyInfoOpen={setCompanyInfoOpen}
-                        companyData={companyData}
-                        setCompanyData={setCompanyData}
-                    />
-                )}
-                {productinfoopen && (
-                    <ProductInfo
-                        open={productinfoopen}
-                        setProductInfoOpen={setProductInfoOpen}
-                        productData={productData}
-                        setProductData={setProductData}
-                    />
-                )}
-                {paymentinfoopen && (
-                    <PaymentInfo
-                        open={paymentinfoopen}
-                        setPaymentInfoOpen={setPaymentInfoOpen}
-                        paymentData={paymentData}
-                        setPaymentData={setPaymentData}
-                    />
-                )}
-                {bankinfoopen && (
-                    <BankInfo
-                        open={bankinfoopen}
-                        setBankInfoOpen={setBankInfoOpen}
-                        bankData={bankData}
-                        setBankData={setBankData}
-                    />
-                )}
-                {closinginfoopen && (
-                    <ClosingInfo
-                        open={closinginfoopen}
-                        setClosingInfoOpen={setBankInfoOpen}
-                        closingdata={closingdata}
-                        setClosingData={setClosingData}
-                    />
-                )}
-            </div>
+            {(companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen) && (
+                <div className="absolute right-0 top-0 w-4/12 h-full border-2 border-gray-300 bg-white overflow-y-scroll">
+                    {companyinfoopen && (
+                        <CompanyInfo
+                            open={companyinfoopen}
+                            setCompanyInfoOpen={setCompanyInfoOpen}
+                            companyData={companyData}
+                            setCompanyData={setCompanyData}
+                        />
+                    )}
+                    {productinfoopen && (
+                        <ProductInfo
+                            open={productinfoopen}
+                            setProductInfoOpen={setProductInfoOpen}
+                            productData={productData}
+                            setProductData={setProductData}
+                        />
+                    )}
+                    {paymentinfoopen && (
+                        <PaymentInfo
+                            open={paymentinfoopen}
+                            setPaymentInfoOpen={setPaymentInfoOpen}
+                            paymentData={paymentData}
+                            setPaymentData={setPaymentData}
+                        />
+                    )}
+                    {bankinfoopen && (
+                        <BankInfo
+                            open={bankinfoopen}
+                            setBankInfoOpen={setBankInfoOpen}
+                            bankData={bankData}
+                            setBankData={setBankData}
+                        />
+                    )}
+                    {closinginfoopen && (
+                        <ClosingInfo
+                            open={closinginfoopen}
+                            setClosingInfoOpen={setClosingInfoOpen}
+                            closingdata={closingdata}
+                            setClosingData={setClosingData}
+                        />
+                    )}
+                </div>
+            )}
+
         </div>
     );
 };

@@ -1,11 +1,16 @@
 import { useState } from "react";
-
-const ProductInfo = ({  productData, setProductData }) => {
+import { RiCloseLargeLine } from "react-icons/ri";
+const ProductInfo = ({ productData, setProductData, setProductInfoOpen }) => {
 
     return (
-       <div className="max-w-2xl mx-auto p-5">
-           
-            <h1 className="text-center pb-5 border-b font-bold text-4xl mb-6">Product Information</h1>
+        <div className="max-w-2xl mx-auto p-5">
+
+            <div className="flex justify-between items-center mb-6">
+                <h1 className="text-center font-bold text-4xl">Product Information</h1>
+                <button onClick={() => setProductInfoOpen(false)}>
+                    <RiCloseLargeLine size={30} />
+                </button>
+            </div>
             <div className="flex flex-col gap-5 text-2xl">
                 <label className="flex flex-col">
                     Proposal:
@@ -19,8 +24,8 @@ const ProductInfo = ({  productData, setProductData }) => {
                     />
                 </label>
 
-                 <label className="flex flex-col">
-                     Descriptions:
+                <label className="flex flex-col">
+                    Descriptions:
                     <input
                         type="text"
                         className="border p-2 rounded mt-1 text-base"
@@ -32,7 +37,7 @@ const ProductInfo = ({  productData, setProductData }) => {
                 </label>
 
                 <label className="flex flex-col">
-                     Total:
+                    Total:
                     <input
                         type="text"
                         className="border p-2 rounded mt-1 text-base"

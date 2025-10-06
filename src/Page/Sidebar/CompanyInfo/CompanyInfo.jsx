@@ -1,15 +1,13 @@
 import React from "react";
+import { RiCloseLargeLine } from "react-icons/ri";
 
 const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
     return (
         <div className="max-w-2xl mx-auto p-5">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-center font-bold text-4xl">Company</h1>
-                <button
-                    onClick={() => setCompanyInfoOpen(false)}
-                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                >
-                    Close
+                <button onClick={() => setCompanyInfoOpen(false)}>
+                   <RiCloseLargeLine size={30}/>
                 </button>
             </div>
 
