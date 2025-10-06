@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RiCloseLargeLine } from "react-icons/ri";
+import { FaPlus } from "react-icons/fa";
 const ProductInfo = ({ productData, setProductData, setProductInfoOpen }) => {
 
     return (
@@ -47,6 +48,14 @@ const ProductInfo = ({ productData, setProductData, setProductInfoOpen }) => {
                     />
                 </label>
             </div>
+            <div className="flex justify-end p-5">
+                <button 
+                onClick={() => setProductInfoOpen(false)}
+                className=" bg-green-400 p-2 rounded-lg text-white font-bold">
+                    <FaPlus size={24}/>
+                </button>
+            </div>
+
         </div>
     );
 };
