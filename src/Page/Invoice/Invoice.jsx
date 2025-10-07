@@ -59,7 +59,7 @@ const Invoice = () => {
     const [closinginfoopen, setClosingInfoOpen] = useState(false);
 
     return (
-        <div className="">
+        <div className="flex lg:h-screen overflow-y-auto  sm:overflow-x-auto scroll-hidden">
             <div
                 className={`${companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen ? "w-8/12": "mx-auto"}`}>
                 <div className="flex justify-between items-center">
@@ -388,7 +388,7 @@ const Invoice = () => {
                 </div>
             </div>
             {(companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen) && (
-                <div className="absolute right-0 top-0 w-4/12 h-auto bg-white ">
+                <div className="absolute h-screen overflow-y-auto scroll-hidden right-0 top-0 lg:w-4/12 sm:w-full bg-white ">
                     {companyinfoopen && (
                         <CompanyInfo
                             open={companyinfoopen}
