@@ -25,11 +25,11 @@ const Invoice = () => {
     });
     const [companyinfoopen, setCompanyInfoOpen] = useState(false);
 
-    const [productData, setProductData] = useState({
+    const [productData, setProductData] = useState([{
         proposal: "",
         descriptions: "",
         total: "",
-    });
+    }]);
     const [productinfoopen, setProductInfoOpen] = useState(false);
 
     const [paymentData, setPaymentData] = useState({
@@ -59,9 +59,9 @@ const Invoice = () => {
     const [closinginfoopen, setClosingInfoOpen] = useState(false);
 
     return (
-        <div className="flex lg:h-screen overflow-y-auto  sm:overflow-x-auto scroll-hidden">
+        <div className="overflow-y-auto scroll-hidden">
             <div
-                className={`${companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen ? "w-8/12": "mx-auto"}`}>
+                className={`${companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen ? "w-8/12" : "w-6xl mx-auto"}`}>
                 <div className="flex justify-between items-center">
                     <img
                         src="https://wbsoftwares.com/img/logo.4b604ac6.png"
@@ -90,7 +90,7 @@ const Invoice = () => {
                     }}
                     className="border border-gray-300 mt-3"
                 >
-                   
+
                     <table className="min-w-full border border-gray-300">
                         <thead>
                             <tr className="bg-blue-100">
@@ -217,30 +217,23 @@ const Invoice = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {Array(2)
-                                .fill()
-                                .map((_, i, arr) => {
-                                    const isLastRow = i === arr.length - 1;
-                                    return (
-                                        <tr key={i} className="h-10">
-                                            {isLastRow ? (
-                                                <>
-                                                    <td className="border border-gray-300 px-4 text-right" colSpan={3}>
-                                                        Total
-                                                    </td>
-                                                    <td className="border border-gray-300 px-4">10000</td>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <td className="w-50 border border-gray-300 px-4">1</td>
-                                                    <td className="w-50 border border-gray-300 px-4">{productData.proposal}</td>
-                                                    <td className="w-50 border border-gray-300 px-4 break-words">{productData.descriptions}</td>
-                                                    <td className="w-50 border border-gray-300 px-4">{productData.total}</td>
-                                                </>
-                                            )}
-                                        </tr>
-                                    );
-                                })}
+                            {productData.map((item, i) => (
+                                <tr key={i} className="h-10">
+                                    <td className="border border-gray-300 px-4">{i + 1}</td>
+                                    <td className="border border-gray-300 px-4">{item.proposal}</td>
+                                    <td className="border border-gray-300 px-4 break-words">{item.descriptions}</td>
+                                    <td className="border border-gray-300 px-4">{item.total}</td>
+                                </tr>
+                            ))}
+                            <tr>
+                                <td colSpan={3} className="border border-gray-300 px-4 text-right font-semibold">
+                                    Total
+                                </td>
+                                <td className="border border-gray-300 px-4 font-semibold">
+                                    {productData.reduce((sum, item) => sum + Number(item.total || 0), 0)}
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -271,7 +264,7 @@ const Invoice = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {Array(2)
+                            {Array(1)
                                 .fill()
                                 .map((_, i) => (
                                     <tr key={i} className="h-10">
@@ -308,25 +301,25 @@ const Invoice = () => {
 
                         <tbody>
                             <tr>
-                                <td className="border w-50 border-gray-300 px-4 py-2 text-left">Bank</td>
+                                <td className="border w-30 border-gray-300 px-4 py-2 text-left">Bank</td>
                                 <td className="border w-50 border-gray-300 px-4 py-2 text-left">{bankData.bankname}</td>
-                                <td className="border w-50 border-gray-300 px-4 py-2 text-left">Transation ID</td>
+                                <td className="border w-30 border-gray-300 px-4 py-2 text-left">Transation ID</td>
                                 <td className="border w-50 border-gray-300 px-4 py-2 text-left">{bankData.transationid}</td>
                             </tr>
                             <tr>
-                                <td className="border w-50 border-gray-300 px-4 py-2 text-left">Branch</td>
+                                <td className="border w-30 border-gray-300 px-4 py-2 text-left">Branch</td>
                                 <td className="border w-50 border-gray-300 px-4 py-2 text-left">{bankData.branch}</td>
-                                <td className="border w-50 border-gray-300 px-4 py-2 text-left">Transation From</td>
+                                <td className="border w-30 border-gray-300 px-4 py-2 text-left">Transation From</td>
                                 <td className="border w-50 border-gray-300 px-4 py-2 text-left">{bankData.transationfrom}</td>
                             </tr>
                             <tr>
-                                <td className="border w-50 border-gray-300 px-4 py-2 text-left">Account No</td>
+                                <td className="border w-20 border-gray-300 px-4 py-2 text-left">Account No</td>
                                 <td className="border w-50 border-gray-300 px-4 py-2 text-left">{bankData.accountno}</td>
-                                <td className="border w-50 border-gray-300 px-4 py-2 text-left">Transaction Type</td>
+                                <td className="border w-20 border-gray-300 px-4 py-2 text-left">Transaction Type</td>
                                 <td className="border w-50 border-gray-300 px-4 py-2 text-left">{bankData.transactiontype}</td>
                             </tr>
                             <tr>
-                                <td className="border w-50 border-gray-300 px-4 py-2 text-left">Account Name</td>
+                                <td className="border w-20 border-gray-300 px-4 py-2 text-left">Account Name</td>
                                 <td className="border w-50 border-gray-300 px-4 py-2 text-left">{bankData.accountname}</td>
                             </tr>
                         </tbody>
@@ -360,9 +353,10 @@ const Invoice = () => {
 
                         <tbody>
                             <tr>
-                                <td className="border border-gray-300 px-4 py-2 ">{closingdata.totalamount}</td>
-                                <td className="border border-gray-300 px-4 py-2 ">{closingdata.paidamount}</td>
-                                <td className="border border-gray-300 px-4 py-2 ">{closingdata.dueamount}</td>
+                                {/* <td className="border border-gray-300 px-4 py-2 ">{closingdata.totalamount}</td> */}
+                                 <td className="border border-gray-300 px-4 py-2 ">{productData.reduce((sum, item) => sum + Number(item.total || 0), 0)}</td>
+                                <td className="border border-gray-300 px-4 py-2 ">{Number(paymentData.amount || 0)}</td>
+                                <td className="border border-gray-300 px-4 py-2 "> {productData.reduce((sum, item) => sum + Number(item.total || 0), 0) - Number(paymentData.amount || 0)}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -388,7 +382,7 @@ const Invoice = () => {
                 </div>
             </div>
             {(companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen) && (
-                <div className="absolute h-screen overflow-y-auto scroll-hidden right-0 top-0 lg:w-4/12 sm:w-full bg-gray-300 ">
+                <div className="absolute h-screen overflow-y-auto scroll-hidden right-0 top-0 lg:w-4/12 sm:w-full lg:bg-white bg-gray-100 ">
                     {companyinfoopen && (
                         <CompanyInfo
                             open={companyinfoopen}
