@@ -4,7 +4,7 @@ import { RiCloseLargeLine } from "react-icons/ri";
 const ClosingInfo = ({ closingdata, setClosingData, setClosingInfoOpen }) => {
 
     return (
-        <div className="max-w-2xl mx-auto p-5">
+        <div className="max-w-2xl fixed mx-auto p-5">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-center font-bold text-4xl">Closing Calculation</h1>
                 <button onClick={() => setClosingInfoOpen(false)}>
