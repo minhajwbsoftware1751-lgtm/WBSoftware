@@ -388,7 +388,7 @@ const Invoice = () => {
                 </div>
             </div>
             {(companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen) && (
-                <div className="absolute h-screen overflow-y-auto scroll-hidden right-0 top-0 lg:w-4/12 sm:w-full bg-white ">
+                <div className="absolute h-screen overflow-y-auto scroll-hidden right-0 top-0 lg:w-4/12 sm:w-full bg-gray-300 ">
                     {companyinfoopen && (
                         <CompanyInfo
                             open={companyinfoopen}
