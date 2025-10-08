@@ -25,37 +25,38 @@ const Invoice = () => {
     }, []);
 
     const [companyData, setCompanyData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        address: "",
-        date: "",
+        name: "WB Software Ltd.",
+        email: "wbsoftwaresteam@gmail.com",
+        phone: "+8801602024545",
+        address: "House# 375, Flat#3B, Road#28, Mohakhali DOSH, Dhaka",
+        date: new Date().toISOString().slice(0, 10),
         invoiceid: "",
         salesman: "",
         customername: "",
         customerid: "",
         customerphone: "",
         customeraddress: "",
-        paymentdate: "",
+        paymentdate: new Date().toISOString().slice(0, 10),
         receiptid: "",
         paymentmethod: "",
     });
-    const [companyinfoopen, setCompanyInfoOpen] = useState(false);
+    const [companyinfoopen, setCompanyInfoOpen] = useState(true);
 
     const [productData, setProductData] = useState([{
-        proposal: "",
         descriptions: "",
         total: "",
     }]);
-    const [productinfoopen, setProductInfoOpen] = useState(false);
+
+    
+    const [productinfoopen, setProductInfoOpen] = useState(true);
 
     const [paymentData, setPaymentData] = useState({
-        paymentdate: "",
+        paymentdate: new Date().toISOString().slice(0, 10),
         paymentdetails: "",
         receive: "",
         amount: "",
     });
-    const [paymentinfoopen, setPaymentInfoOpen] = useState(false);
+    const [paymentinfoopen, setPaymentInfoOpen] = useState(true);
 
     const [bankData, setBankData] = useState({
         bankname: "",
@@ -66,20 +67,13 @@ const Invoice = () => {
         transationfrom: "",
         transactiontype: "",
     });
-    const [bankinfoopen, setBankInfoOpen] = useState(false);
-
-    const [closingdata, setClosingData] = useState({
-        totalamount: "",
-        paidamount: "",
-        dueamount: "",
-    });
-    const [closinginfoopen, setClosingInfoOpen] = useState(false);
+    const [bankinfoopen, setBankInfoOpen] = useState(true);
 
     return (
         <div className="overflow-y-auto scroll-hidden">
             <div className="invoice-print-area">
                 <div
-                    className={`${companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen ? "w-9/12 pl-8" : "w-6xl mx-auto"}`}>
+                    className="w-[70%] pl-8">
                     <div className="flex justify-between items-center">
                         <img
                             src="https://wbsoftwares.com/img/logo.4b604ac6.png"
@@ -91,20 +85,19 @@ const Invoice = () => {
                                 <h1>+8801309085965</h1>
                                 <h1>+8801309085965</h1>
                             </div>
-                            <div className="bg-black/30 p-2 rounded">
+                            <div className="bg-[#DBEAFE] p-2 rounded">
                                 <BiPhoneCall size={36} />
                             </div>
                         </div>
                     </div>
-
                     {/* Company Information */}
                     <div
                         onClick={() => {
-                            setCompanyInfoOpen(true);
-                            setProductInfoOpen(false);
-                            setPaymentInfoOpen(false);
-                            setBankInfoOpen(false);
-                            setClosingInfoOpen(false);
+                            // setCompanyInfoOpen(true);
+                            // setProductInfoOpen(false);
+                            // setPaymentInfoOpen(false);
+                            // setBankInfoOpen(false);
+                            // setClosingInfoOpen(false);
                         }}
                         className="border border-gray-300 mt-3"
                     >
@@ -217,11 +210,11 @@ const Invoice = () => {
                     {/* Product Information */}
                     <div
                         onClick={() => {
-                            setProductInfoOpen(true);
-                            setCompanyInfoOpen(false);
-                            setPaymentInfoOpen(false);
-                            setBankInfoOpen(false);
-                            setClosingInfoOpen(false);
+                            // setProductInfoOpen(true);
+                            // setCompanyInfoOpen(false);
+                            // setPaymentInfoOpen(false);
+                            // setBankInfoOpen(false);
+                            // setClosingInfoOpen(false);
                         }}
                         className="border border-gray-300 mt-3 cursor-pointer hover:bg-gray-50"
                     >
@@ -229,7 +222,6 @@ const Invoice = () => {
                             <thead>
                                 <tr className="bg-blue-100">
                                     <th className="border border-gray-300 w-1/12 py-2">Serial</th>
-                                    <th className="border border-gray-300 w-1/12 py-2">Proposal</th>
                                     <th className="border border-gray-300 w-1/3 py-2">Descriptions</th>
                                     <th className="border border-gray-300 w-1/12 py-2">Total</th>
                                 </tr>
@@ -238,13 +230,12 @@ const Invoice = () => {
                                 {productData.map((item, i) => (
                                     <tr key={i} className="h-10">
                                         <td className="border border-gray-300 px-4">{i + 1}</td>
-                                        <td className="border border-gray-300 px-4">{item.proposal}</td>
                                         <td className="border border-gray-300 px-4 break-words">{item.descriptions}</td>
                                         <td className="border border-gray-300 px-4">{item.total}</td>
                                     </tr>
                                 ))}
                                 <tr>
-                                    <td colSpan={3} className="border border-gray-300 px-4 text-right font-semibold">
+                                    <td colSpan={2} className="border border-gray-300 px-4 text-right font-semibold">
                                         Total
                                     </td>
                                     <td className="border border-gray-300 px-4 font-semibold">
@@ -263,11 +254,11 @@ const Invoice = () => {
                     {/* Payment Information */}
                     <div
                         onClick={() => {
-                            setPaymentInfoOpen(true);
-                            setCompanyInfoOpen(false);
-                            setProductInfoOpen(false);
-                            setBankInfoOpen(false);
-                            setClosingInfoOpen(false);
+                            // setPaymentInfoOpen(true);
+                            // setCompanyInfoOpen(false);
+                            // setProductInfoOpen(false);
+                            // setBankInfoOpen(false);
+                            // setClosingInfoOpen(false);
                         }}
                         className="border border-gray-300 mt-3"
                     >
@@ -300,11 +291,11 @@ const Invoice = () => {
                     {/* Bank Information */}
                     <div
                         onClick={() => {
-                            setBankInfoOpen(true);
-                            setPaymentInfoOpen(false);
-                            setCompanyInfoOpen(false);
-                            setProductInfoOpen(false);
-                            setClosingInfoOpen(false);
+                            // setBankInfoOpen(true);
+                            // setPaymentInfoOpen(false);
+                            // setCompanyInfoOpen(false);
+                            // setProductInfoOpen(false);
+                            // setClosingInfoOpen(false);
                         }}
                         className="border border-gray-300 mt-3"
                     >
@@ -352,11 +343,11 @@ const Invoice = () => {
                     {/* Closing Calculation */}
                     <div
                         onClick={() => {
-                            setClosingInfoOpen(true);
-                            setCompanyInfoOpen(false);
-                            setProductInfoOpen(false);
-                            setPaymentInfoOpen(false);
-                            setBankInfoOpen(false);
+                            // setClosingInfoOpen(true);
+                            // setCompanyInfoOpen(false);
+                            // setProductInfoOpen(false);
+                            // setPaymentInfoOpen(false);
+                            // setBankInfoOpen(false);
                         }}
                         className="border border-gray-300 mt-3"
                     >
@@ -402,50 +393,42 @@ const Invoice = () => {
             </div>
 
             <div className="right-sidebar">
-                {(companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen) && (
-                    <div className="absolute h-screen overflow-y-auto scroll-hidden right-0 top-0 lg:w-3/12 sm:w-full lg:bg-white bg-gray-100">
+                    <div className="absolute right-0 top-0 h-screen overflow-y-auto scroll-hidden lg:w-[30%] sm:w-full lg:bg-white bg-gray-100 flex flex-col">
+
                         {companyinfoopen && (
                             <CompanyInfo
-                                open={companyinfoopen}
-                                setCompanyInfoOpen={setCompanyInfoOpen}
+                                // open={companyinfoopen}
+                                // setCompanyInfoOpen={setCompanyInfoOpen}
                                 companyData={companyData}
                                 setCompanyData={setCompanyData}
                             />
                         )}
                         {productinfoopen && (
                             <ProductInfo
-                                open={productinfoopen}
-                                setProductInfoOpen={setProductInfoOpen}
+                                // open={productinfoopen}
+                                // setProductInfoOpen={setProductInfoOpen}
                                 productData={productData}
                                 setProductData={setProductData}
                             />
                         )}
                         {paymentinfoopen && (
                             <PaymentInfo
-                                open={paymentinfoopen}
-                                setPaymentInfoOpen={setPaymentInfoOpen}
+                                // open={paymentinfoopen}
+                                // setPaymentInfoOpen={setPaymentInfoOpen}
                                 paymentData={paymentData}
                                 setPaymentData={setPaymentData}
                             />
                         )}
                         {bankinfoopen && (
                             <BankInfo
-                                open={bankinfoopen}
-                                setBankInfoOpen={setBankInfoOpen}
+                                // open={bankinfoopen}
+                                // setBankInfoOpen={setBankInfoOpen}
                                 bankData={bankData}
                                 setBankData={setBankData}
                             />
                         )}
-                        {closinginfoopen && (
-                            <ClosingInfo
-                                open={closinginfoopen}
-                                setClosingInfoOpen={setClosingInfoOpen}
-                                closingdata={closingdata}
-                                setClosingData={setClosingData}
-                            />
-                        )}
                     </div>
-                )}
+                
 
             </div>
 

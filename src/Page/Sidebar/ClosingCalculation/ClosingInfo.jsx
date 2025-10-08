@@ -7,9 +7,9 @@ const ClosingInfo = ({ closingdata, setClosingData, setClosingInfoOpen }) => {
         <div className="max-w-2xl fixed mx-auto p-5">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-center font-bold text-4xl">Closing Calculation</h1>
-                <button onClick={() => setClosingInfoOpen(false)}>
+                {/* <button onClick={() => setClosingInfoOpen(false)}>
                     <RiCloseLargeLine size={30} />
-                </button>
+                </button> */}
             </div>
             <div className="flex flex-col gap-5 text-2xl">
                 <label className="flex flex-col">
