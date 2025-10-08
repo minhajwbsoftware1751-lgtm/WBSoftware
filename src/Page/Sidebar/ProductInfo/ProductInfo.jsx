@@ -36,7 +36,7 @@ const ProductInfo = ({ productData, setProductData, setProductInfoOpen }) => {
                         Proposal:
                         <input
                             type="text"
-                            className="border p-0.5 rounded mt-1 text-sm"
+                            className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
                             value={item.proposal}
                             onChange={(e) =>
                                 handleInputChange(index, "proposal", e.target.value)
@@ -48,7 +48,7 @@ const ProductInfo = ({ productData, setProductData, setProductInfoOpen }) => {
                         Descriptions:
                         <input
                             type="text"
-                            className="border p-0.5 rounded mt-1 text-sm"
+                            className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
                             value={item.descriptions}
                             onChange={(e) =>
                                 handleInputChange(index, "descriptions", e.target.value)
@@ -60,7 +60,7 @@ const ProductInfo = ({ productData, setProductData, setProductInfoOpen }) => {
                         Total:
                         <input
                             type="number"
-                            className="border p-1 rounded mt-1 text-sm"
+                            className="border border-gray-300 p-1 rounded mt-1 text-sm"
                             value={item.total}
                             onChange={(e) =>
                                 handleInputChange(index, "total", e.target.value)

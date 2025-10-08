@@ -79,7 +79,7 @@ const Invoice = () => {
         <div className="overflow-y-auto scroll-hidden">
             <div className="invoice-print-area">
                 <div
-                    className={`${companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen ? "w-8/12" : "w-6xl mx-auto"}`}>
+                    className={`${companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen ? "w-9/12 pl-8" : "w-6xl mx-auto"}`}>
                     <div className="flex justify-between items-center">
                         <img
                             src="https://wbsoftwares.com/img/logo.4b604ac6.png"
@@ -210,7 +210,7 @@ const Invoice = () => {
 
                     </div>
 
-                    <h1 className="mt-3 text-xl text-red-500 text-center">
+                    <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
                         Product Information
                     </h1>
 
@@ -256,7 +256,7 @@ const Invoice = () => {
                         </table>
                     </div>
 
-                    <h1 className="mt-3 text-xl text-red-500 text-center">
+                    <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
                         Payment Information
                     </h1>
 
@@ -345,7 +345,7 @@ const Invoice = () => {
 
                     </div>
 
-                    <h1 className="mt-3 text-xl text-red-500 text-center">
+                    <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
                         Closing Calculation
                     </h1>
 
@@ -403,7 +403,7 @@ const Invoice = () => {
 
             <div className="right-sidebar">
                 {(companyinfoopen || productinfoopen || paymentinfoopen || bankinfoopen || closinginfoopen) && (
-                    <div className="absolute h-screen overflow-y-auto scroll-hidden right-0 top-0 lg:w-4/12 sm:w-full lg:bg-white bg-gray-100">
+                    <div className="absolute h-screen overflow-y-auto scroll-hidden right-0 top-0 lg:w-3/12 sm:w-full lg:bg-white bg-gray-100">
                         {companyinfoopen && (
                             <CompanyInfo
                                 open={companyinfoopen}

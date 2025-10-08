@@ -16,7 +16,7 @@ const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
                     Payment Date:
                     <input
                         type="date"
-                        className="border p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
                         value={paymentData.paymentdate}
                         onChange={(e) =>
                             setPaymentData({ ...paymentData, paymentdate: e.target.value })
@@ -28,7 +28,7 @@ const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
                     Payment Details:
                     <input
                         type="text"
-                        className="border p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
                         value={paymentData.paymentdetails}
                         onChange={(e) =>
                             setPaymentData({ ...paymentData, paymentdetails: e.target.value })
@@ -40,7 +40,7 @@ const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
                     Receive By:
                     <input
                         type="text"
-                        className="border p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
                         value={paymentData.receive}
                         onChange={(e) =>
                             setPaymentData({ ...paymentData, receive: e.target.value })
@@ -52,7 +52,7 @@ const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
                     Amount:
                     <input
                         type="number"
-                        className="border p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
                         value={paymentData.amount}
                         onChange={(e) =>
                             setPaymentData({ ...paymentData, amount: e.target.value })
