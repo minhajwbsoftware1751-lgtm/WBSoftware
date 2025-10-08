@@ -4,19 +4,19 @@ import { RiCloseLargeLine } from "react-icons/ri";
 const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
 
     return (
-        <div className="max-w-2xl fixed mx-auto p-5">
+        <div className="max-w-2xl mx-auto p-5">
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-center font-bold text-4xl">Payment Information</h1>
+                <h1 className="text-center font-bold text-2xl">Payment Information</h1>
                 <button onClick={() => setPaymentInfoOpen(false)}>
-                    <RiCloseLargeLine size={30} />
+                    <RiCloseLargeLine size={24} />
                 </button>
             </div>
-            <div className="flex flex-col gap-5 text-2xl">
+            <div className="flex flex-col gap-5 text-xl">
                 <label className="flex flex-col">
                     Payment Date:
                     <input
                         type="date"
-                        className="border p-2 rounded mt-1 text-base"
+                        className="border p-0.5 rounded mt-1 text-sm"
                         value={paymentData.paymentdate}
                         onChange={(e) =>
                             setPaymentData({ ...paymentData, paymentdate: e.target.value })
@@ -28,7 +28,7 @@ const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
                     Payment Details:
                     <input
                         type="text"
-                        className="border p-2 rounded mt-1 text-base"
+                        className="border p-0.5 rounded mt-1 text-sm"
                         value={paymentData.paymentdetails}
                         onChange={(e) =>
                             setPaymentData({ ...paymentData, paymentdetails: e.target.value })
@@ -40,7 +40,7 @@ const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
                     Receive By:
                     <input
                         type="text"
-                        className="border p-2 rounded mt-1 text-base"
+                        className="border p-0.5 rounded mt-1 text-sm"
                         value={paymentData.receive}
                         onChange={(e) =>
                             setPaymentData({ ...paymentData, receive: e.target.value })
@@ -52,7 +52,7 @@ const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
                     Amount:
                     <input
                         type="number"
-                        className="border p-2 rounded mt-1 text-base"
+                        className="border p-0.5 rounded mt-1 text-sm"
                         value={paymentData.amount}
                         onChange={(e) =>
                             setPaymentData({ ...paymentData, amount: e.target.value })

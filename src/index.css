@@ -1,5 +1,4 @@
 @import "tailwindcss";
-/* Hide scrollbar but allow scrolling */
 .scroll-hidden {
   -ms-overflow-style: none;
   scrollbar-width: none; 
@@ -8,3 +7,65 @@
 .scroll-hidden::-webkit-scrollbar {
   display: none;
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .invoice-print-area,
+  .invoice-print-area * {
+    visibility: visible;
+  }
+
+  .invoice-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;              
+    height: 100vh;            
+    min-width: 210mm;          
+    min-height: 297mm;        
+    padding: 10px;
+    background: white !important;
+    box-sizing: border-box;
+    overflow: visible !important;
+
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .right-sidebar {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+    padding: 10px;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 20px;
+  }
+
+  th, td {
+    padding: 8px !important;
+    word-break: break-word;
+  }
+
+  body {
+    margin: 0;
+    background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+
