@@ -16,7 +16,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Company Name:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.name}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, name: e.target.value })
@@ -28,7 +28,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Email:
                     <input
                         type="email"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.email}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, email: e.target.value })
@@ -40,7 +40,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Phone:
                     <input
                         type="number"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.phone}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, phone: e.target.value })
@@ -52,7 +52,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Address:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.address}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, address: e.target.value })
@@ -65,7 +65,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Invoice Date:
                     <input
                         type="date"
-                        className="border border-gray-300 p-1 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-1 rounded mt-1 w-50 h-10"
                         value={companyData.date}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, date: e.target.value })
@@ -77,7 +77,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Invoice ID:
                     <input
                         type="number"
-                        className="border border-gray-300 p-1 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-1 rounded mt-1 h-10"
                         value={companyData.invoiceid}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, invoiceid: e.target.value })
@@ -90,7 +90,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Salesman:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.salesman}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, salesman: e.target.value })
@@ -99,13 +99,13 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                 </label>
             </div>
 
-            <h1 className="text-center font-bold text-2xl mb-6">Customer Info</h1>
+            <h1 className="text-left font-bold text-2xl mb-6">Customer Info</h1>
             <div className="flex flex-col gap-3 text-md">
                 <label className="flex flex-col">
                     Customer Name:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.customername}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, customername: e.target.value })
@@ -118,7 +118,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     CustomerID:
                     <input
                         type="number"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.customerid}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, customerid: e.target.value })
@@ -130,7 +130,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Customer Phone:
                     <input
                         type="number"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.customerphone}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, customerphone: e.target.value })
@@ -143,7 +143,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Customer Address:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.customeraddress}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, customeraddress: e.target.value })
@@ -156,7 +156,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Payment Date:
                     <input
                         type="date"
-                        className="border border-gray-300 p-1 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-1 rounded mt-1 w-50 h-10"
                         value={companyData.paymentdate}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, paymentdate: e.target.value })
@@ -168,7 +168,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     ReceiptID:
                     <input
                         type="text"
-                        className="border border-gray-300 p-1 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-1 rounded mt-1 h-10"
                         value={companyData.receiptid}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, receiptid: e.target.value })
@@ -181,7 +181,7 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
                     Payment Method:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.paymentmethod}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, paymentmethod: e.target.value })

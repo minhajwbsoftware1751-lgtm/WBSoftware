@@ -15,7 +15,7 @@ const BankInfo = ({ bankData, setBankData, setBankInfoOpen }) => {
                     Bank Name:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={bankData.bankname}
                         onChange={(e) =>
                             setBankData({ ...bankData, bankname: e.target.value })
@@ -27,7 +27,7 @@ const BankInfo = ({ bankData, setBankData, setBankInfoOpen }) => {
                     Branch:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={bankData.branch}
                         onChange={(e) =>
                             setBankData({ ...bankData, branch: e.target.value })
@@ -39,7 +39,7 @@ const BankInfo = ({ bankData, setBankData, setBankInfoOpen }) => {
                     Account No:
                     <input
                         type="number"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={bankData.accountno}
                         onChange={(e) =>
                             setBankData({ ...bankData, accountno: e.target.value })
@@ -51,7 +51,7 @@ const BankInfo = ({ bankData, setBankData, setBankInfoOpen }) => {
                     Account Name:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={bankData.accountname}
                         onChange={(e) =>
                             setBankData({ ...bankData, accountname: e.target.value })
@@ -66,7 +66,7 @@ const BankInfo = ({ bankData, setBankData, setBankInfoOpen }) => {
                     Transation ID:
                     <input
                         type="number"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={bankData.transationid}
                         onChange={(e) =>
                             setBankData({ ...bankData, transationid: e.target.value })
@@ -78,7 +78,7 @@ const BankInfo = ({ bankData, setBankData, setBankInfoOpen }) => {
                     Transation From:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={bankData.transationfrom}
                         onChange={(e) =>
                             setBankData({ ...bankData, transationfrom: e.target.value })
@@ -90,7 +90,7 @@ const BankInfo = ({ bankData, setBankData, setBankInfoOpen }) => {
                     Transaction Type:
                     <input
                         type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={bankData.transactiontype}
                         onChange={(e) =>
                             setBankData({ ...bankData, transactiontype: e.target.value })

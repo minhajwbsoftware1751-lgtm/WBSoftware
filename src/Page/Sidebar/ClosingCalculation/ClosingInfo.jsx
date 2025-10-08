@@ -16,7 +16,7 @@ const ClosingInfo = ({ closingdata, setClosingData, setClosingInfoOpen }) => {
                     Total Amount:
                     <input
                         type="text"
-                        className="border border-gray-300 p-2 rounded mt-1 text-base"
+                        className="border border-gray-300 p-2 rounded mt-1 h-10"
                         value={closingdata.totalamount}
                         onChange={(e) =>
                             setClosingData({ ...closingdata, totalamount: e.target.value })
@@ -28,7 +28,7 @@ const ClosingInfo = ({ closingdata, setClosingData, setClosingInfoOpen }) => {
                     Paid Amount:
                     <input
                         type="text"
-                        className="border border-gray-300 p-2 rounded mt-1 text-base"
+                        className="border border-gray-300 p-2 rounded mt-1 h-10"
                         value={closingdata.paidamount}
                         onChange={(e) =>
                             setClosingData({ ...closingdata, paidamount: e.target.value })
@@ -40,7 +40,7 @@ const ClosingInfo = ({ closingdata, setClosingData, setClosingInfoOpen }) => {
                     Due Amount:
                     <input
                         type="text"
-                        className="border border-gray-300 p-2 rounded mt-1 text-base"
+                        className="border border-gray-300 p-2 rounded mt-1 h-10"
                         value={closingdata.dueamount}
                         onChange={(e) =>
                             setClosingData({ ...closingdata, dueamount: e.target.value })

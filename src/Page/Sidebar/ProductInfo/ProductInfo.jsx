@@ -36,7 +36,7 @@ const ProductInfo = ({ productData, setProductData, setProductInfoOpen }) => {
                         Proposal:
                         <input
                             type="text"
-                            className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                            className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                             value={item.proposal}
                             onChange={(e) =>
                                 handleInputChange(index, "proposal", e.target.value)
@@ -48,7 +48,7 @@ const ProductInfo = ({ productData, setProductData, setProductInfoOpen }) => {
                         Descriptions:
                         <input
                             type="text"
-                            className="border border-gray-300 p-0.5 rounded mt-1 text-sm"
+                            className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                             value={item.descriptions}
                             onChange={(e) =>
                                 handleInputChange(index, "descriptions", e.target.value)
