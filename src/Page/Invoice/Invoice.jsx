@@ -16,6 +16,7 @@ import { IoColorPalette } from "react-icons/io5";
 
 
 const Invoice = () => {
+    
 
     const handlePrint = () => {
         window.print();
@@ -25,6 +26,7 @@ const Invoice = () => {
     const productRef = useRef(null);
     const paymentRef = useRef(null);
     const bankRef = useRef(null);
+
     const scrollToSection = (ref) => {
         if (ref.current) {
             ref.current.scrollIntoView({ behavior: "smooth" });
@@ -82,19 +84,22 @@ const Invoice = () => {
     const [paymentinfoopen, setPaymentInfoOpen] = useState(true);
 
     const [bankData, setBankData] = useState({
-        bankname: "",
-        branch: "",
-        accountno: "",
-        accountname: "",
+        bankname: "No",
+        branch: "No",
+        accountno: "No",
+        accountname: "No",
         transationid: "",
         transationfrom: "",
         transactiontype: "",
     });
     const [bankinfoopen, setBankInfoOpen] = useState(true);
 
+    const [themeColor, setThemeColor] = useState("red");
+
+
     return (
         <div className="overflow-y-auto scroll-hidden">
-            <div className="fixed left-0 top-85 transform -translate-y-1/2  shadow-lg rounded-r z-10">
+            <div className="fixed left-0 top-80 transform -translate-y-1/2  shadow-lg rounded-r z-10">
                 <button
                     onClick={handlePrint}
                     className="flex items-center  px-2 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
@@ -353,7 +358,7 @@ const Invoice = () => {
                 >
                     <table className="min-w-full table-fixed border border-gray-300 text-center">
                         <thead>
-                            <tr className="bg-blue-100">
+                            <tr className={`bg-${themeColor}`}>
                                 <th className="border border-gray-300 w-1/12 py-2">SI</th>
                                 <th className="border border-gray-300 w-1/12 py-2">Date</th>
                                 <th className="border border-gray-300 w-1/3 py-2">Details</th>
@@ -522,14 +527,14 @@ const Invoice = () => {
                         />
                     </div>
                 )}
-                 {companyinfoopen && (
+                 {/* {companyinfoopen && (
                     <div ref={companyRef}>
                         <CompanyInfo
                             companyData={companyData}
                             setCompanyData={setCompanyData}
                         />
                     </div>
-                )}
+                )} */}
 
             </div>
         </div>
