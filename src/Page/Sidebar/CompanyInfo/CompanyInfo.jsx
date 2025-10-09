@@ -62,28 +62,28 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
 
                 <div className="flex justify-between">
                     <label className="flex flex-col">
-                    Invoice Date:
-                    <input
-                        type="date"
-                        className="border border-gray-300 p-1 rounded mt-1 w-50 h-10"
-                        value={companyData.date}
-                        onChange={(e) =>
-                            setCompanyData({ ...companyData, date: e.target.value })
-                        }
-                    />
-                </label>
+                        Invoice Date:
+                        <input
+                            type="date"
+                            className="border border-gray-300 p-1 rounded mt-1 w-50 h-10"
+                            value={companyData.date}
+                            onChange={(e) =>
+                                setCompanyData({ ...companyData, date: e.target.value })
+                            }
+                        />
+                    </label>
 
-                <label className="flex flex-col">
-                    Invoice ID:
-                    <input
-                        type="number"
-                        className="border border-gray-300 p-1 rounded mt-1 h-10"
-                        value={companyData.invoiceid}
-                        onChange={(e) =>
-                            setCompanyData({ ...companyData, invoiceid: e.target.value })
-                        }
-                    />
-                </label>
+                    <label className="flex flex-col">
+                        Invoice ID:
+                        <input
+                            type="number"
+                            className="border border-gray-300 p-1 rounded mt-1 h-10"
+                            value={companyData.invoiceid}
+                            onChange={(e) =>
+                                setCompanyData({ ...companyData, invoiceid: e.target.value })
+                            }
+                        />
+                    </label>
                 </div>
 
                 <label className="flex flex-col">
@@ -115,28 +115,28 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
 
                 <div className="flex justify-between">
                     <label className="flex flex-col">
-                    CustomerID:
-                    <input
-                        type="number"
-                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-                        value={companyData.customerid}
-                        onChange={(e) =>
-                            setCompanyData({ ...companyData, customerid: e.target.value })
-                        }
-                    />
-                </label>
+                        CustomerID:
+                        <input
+                            type="number"
+                            className="border border-gray-300 p-0.5 rounded mt-1 h-10"
+                            value={companyData.customerid}
+                            onChange={(e) =>
+                                setCompanyData({ ...companyData, customerid: e.target.value })
+                            }
+                        />
+                    </label>
 
-                <label className="flex flex-col">
-                    Customer Phone:
-                    <input
-                        type="number"
-                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-                        value={companyData.customerphone}
-                        onChange={(e) =>
-                            setCompanyData({ ...companyData, customerphone: e.target.value })
-                        }
-                    />
-                </label>
+                    <label className="flex flex-col">
+                        Customer Phone:
+                        <input
+                            type="number"
+                            className="border border-gray-300 p-0.5 rounded mt-1 h-10"
+                            value={companyData.customerphone}
+                            onChange={(e) =>
+                                setCompanyData({ ...companyData, customerphone: e.target.value })
+                            }
+                        />
+                    </label>
                 </div>
 
                 <label className="flex flex-col">
@@ -153,41 +153,49 @@ const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
 
                 <div className="flex justify-between">
                     <label className="flex flex-col">
-                    Payment Date:
-                    <input
-                        type="date"
-                        className="border border-gray-300 p-1 rounded mt-1 w-50 h-10"
-                        value={companyData.paymentdate}
-                        onChange={(e) =>
-                            setCompanyData({ ...companyData, paymentdate: e.target.value })
-                        }
-                    />
-                </label>
+                        Payment Date:
+                        <input
+                            type="date"
+                            className="border border-gray-300 p-1 rounded mt-1 w-50 h-10"
+                            value={companyData.paymentdate}
+                            onChange={(e) =>
+                                setCompanyData({ ...companyData, paymentdate: e.target.value })
+                            }
+                        />
+                    </label>
 
-                <label className="flex flex-col">
-                    ReceiptID:
-                    <input
-                        type="text"
-                        className="border border-gray-300 p-1 rounded mt-1 h-10"
-                        value={companyData.receiptid}
-                        onChange={(e) =>
-                            setCompanyData({ ...companyData, receiptid: e.target.value })
-                        }
-                    />
-                </label>
+                    <label className="flex flex-col">
+                        ReceiptID:
+                        <input
+                            type="text"
+                            className="border border-gray-300 p-1 rounded mt-1 h-10"
+                            value={companyData.receiptid}
+                            onChange={(e) =>
+                                setCompanyData({ ...companyData, receiptid: e.target.value })
+                            }
+                        />
+                    </label>
                 </div>
 
                 <label className="flex flex-col">
                     Payment Method:
-                    <input
-                        type="text"
+                    <select
                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
                         value={companyData.paymentmethod}
                         onChange={(e) =>
                             setCompanyData({ ...companyData, paymentmethod: e.target.value })
                         }
-                    />
+                    >
+                        <option value="">Select a method</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Card">Card</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="Bkash">Bkash</option>
+                        <option value="Nagad">Nagad</option>
+                        <option value="Rocket">Rocket</option>
+                    </select>
                 </label>
+
             </div>
         </div>
     );

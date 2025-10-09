@@ -12,26 +12,10 @@ import ProductInfo from "../Sidebar/ProductInfo/ProductInfo";
 import PaymentInfo from "../Sidebar/PaymentInfo/PaymentInfo";
 import BankInfo from "../Sidebar/BankInfo/BankInfo";
 import { useRef } from "react";
+import { IoColorPalette } from "react-icons/io5";
 
 
 const Invoice = () => {
-
-
-    useEffect(() => {
-        const handleBeforePrint = () => {
-            setCompanyInfoOpen(false);
-            setProductInfoOpen(false);
-            setPaymentInfoOpen(false);
-            setBankInfoOpen(false);
-            setClosingInfoOpen(false);
-        };
-
-        window.addEventListener("beforeprint", handleBeforePrint);
-
-        return () => {
-            window.removeEventListener("beforeprint", handleBeforePrint);
-        };
-    }, []);
 
     const handlePrint = () => {
         window.print();
@@ -77,11 +61,9 @@ const Invoice = () => {
     };
 
 
-    // Add these states near the top of Invoice component
     const [editingProduct, setEditingProduct] = useState(null);
     const [editIndex, setEditIndex] = useState(null);
 
-    // Define handleEdit function
     const handleEdit = (index) => {
         const productToEdit = productData[index];
         setEditingProduct(productToEdit);
@@ -115,8 +97,7 @@ const Invoice = () => {
             <div className="fixed left-0 top-85 transform -translate-y-1/2  shadow-lg rounded-r z-10">
                 <button
                     onClick={handlePrint}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
+                    className="flex items-center  px-2 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                     <BiPrinter />
                 </button>
             </div>
@@ -124,30 +105,31 @@ const Invoice = () => {
             <div className="fixed space-y-1 right-0 top-85 transform -translate-y-1/2  shadow-lg rounded-r z-10">
                 <button
                     onClick={() => scrollToSection(companyRef)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                     <SiOnlyoffice />
                 </button>
 
                 <button
                     onClick={() => scrollToSection(productRef)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                     <MdOutlineProductionQuantityLimits />
                 </button>
 
                 <button
                     onClick={() => scrollToSection(paymentRef)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                     <MdPayment />
                 </button>
 
                 <button
                     onClick={() => scrollToSection(bankRef)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                     <BsBank />
+                </button>
+                <button
+                    onClick={() => scrollToSection(bankRef)}
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                    <IoColorPalette />
                 </button>
             </div>
 
@@ -537,6 +519,14 @@ const Invoice = () => {
                         <BankInfo
                             bankData={bankData}
                             setBankData={setBankData}
+                        />
+                    </div>
+                )}
+                 {companyinfoopen && (
+                    <div ref={companyRef}>
+                        <CompanyInfo
+                            companyData={companyData}
+                            setCompanyData={setCompanyData}
                         />
                     </div>
                 )}
