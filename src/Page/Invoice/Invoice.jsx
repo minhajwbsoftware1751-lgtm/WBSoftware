@@ -1,10 +1,11 @@
 import { BiPhoneCall } from "react-icons/bi";
+import { MdDeleteForever } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import CompanyInfo from "../Sidebar/CompanyInfo/CompanyInfo";
 import ProductInfo from "../Sidebar/ProductInfo/ProductInfo";
 import PaymentInfo from "../Sidebar/PaymentInfo/PaymentInfo";
 import BankInfo from "../Sidebar/BankInfo/BankInfo";
-import ClosingInfo from "../Sidebar/ClosingCalculation/ClosingInfo";
 
 const Invoice = () => {
 
@@ -42,12 +43,29 @@ const Invoice = () => {
     });
     const [companyinfoopen, setCompanyInfoOpen] = useState(true);
 
-    const [productData, setProductData] = useState([{
-        descriptions: "",
-        total: "",
-    }]);
+    const [productData, setProductData] = useState([]);
 
-    
+    const handleDelete = (index) => {
+        if (window.confirm("Are you sure to delete this row?")) {
+            const updated = productData.filter((_, i) => i !== index);
+            setProductData(updated);
+        }
+    };
+
+    // Add these states near the top of Invoice component
+    const [editingProduct, setEditingProduct] = useState(null);
+    const [editIndex, setEditIndex] = useState(null);
+
+    // Define handleEdit function
+    const handleEdit = (index) => {
+        const productToEdit = productData[index];
+        setEditingProduct(productToEdit);
+        setEditIndex(index);
+    };
+
+
+
+
     const [productinfoopen, setProductInfoOpen] = useState(true);
 
     const [paymentData, setPaymentData] = useState({
@@ -228,24 +246,52 @@ const Invoice = () => {
                             </thead>
                             <tbody>
                                 {productData.map((item, i) => (
-                                    <tr key={i} className="h-10">
+                                    <tr
+                                        key={i}
+                                        className="h-10 group hover:bg-gray-50 relative"
+                                    >
                                         <td className="border border-gray-300 px-4">{i + 1}</td>
-                                        <td className="border border-gray-300 px-4 break-words">{item.descriptions}</td>
-                                        <td className="border border-gray-300 px-4">{item.total}</td>
+                                        <td className="border border-gray-300 px-4 break-words">
+                                            {item.descriptions}
+                                        </td>
+
+                                        <td className="border border-gray-300 px-4 relative">
+                                            {item.total}
+
+                                            <div className="absolute right-2 top-1/2 -translate-y-1/2 hidden group-hover:flex gap-2">
+                                                <button
+                                                    onClick={() => handleEdit(i)}
+                                                    className="text-blue-500 hover:text-blue-700 text-sm"
+                                                >
+                                                    <FaEdit />
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDelete(i)}
+                                                    className="text-red-500 hover:text-red-700 text-sm"
+                                                >
+                                                    <MdDeleteForever />
+                                                </button>
+                                            </div>
+                                        </td>
                                     </tr>
                                 ))}
+
                                 <tr>
-                                    <td colSpan={2} className="border border-gray-300 px-4 text-right font-semibold">
+                                    <td
+                                        colSpan={2}
+                                        className="border border-gray-300 px-4 text-right font-semibold"
+                                    >
                                         Total
                                     </td>
                                     <td className="border border-gray-300 px-4 font-semibold">
                                         {productData.reduce((sum, item) => sum + Number(item.total || 0), 0)}
                                     </td>
                                 </tr>
-
                             </tbody>
+
                         </table>
                     </div>
+
 
                     <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
                         Payment Information
@@ -393,42 +439,41 @@ const Invoice = () => {
             </div>
 
             <div className="right-sidebar">
-                    <div className="absolute right-0 top-0 h-screen overflow-y-auto scroll-hidden lg:w-[30%] sm:w-full lg:bg-white bg-gray-100 flex flex-col">
+                <div className="absolute right-0 top-0 h-screen overflow-y-auto scroll-hidden lg:w-[30%] sm:w-full lg:bg-white bg-gray-100 flex flex-col">
 
-                        {companyinfoopen && (
-                            <CompanyInfo
-                                // open={companyinfoopen}
-                                // setCompanyInfoOpen={setCompanyInfoOpen}
-                                companyData={companyData}
-                                setCompanyData={setCompanyData}
-                            />
-                        )}
-                        {productinfoopen && (
-                            <ProductInfo
-                                // open={productinfoopen}
-                                // setProductInfoOpen={setProductInfoOpen}
-                                productData={productData}
-                                setProductData={setProductData}
-                            />
-                        )}
-                        {paymentinfoopen && (
-                            <PaymentInfo
-                                // open={paymentinfoopen}
-                                // setPaymentInfoOpen={setPaymentInfoOpen}
-                                paymentData={paymentData}
-                                setPaymentData={setPaymentData}
-                            />
-                        )}
-                        {bankinfoopen && (
-                            <BankInfo
-                                // open={bankinfoopen}
-                                // setBankInfoOpen={setBankInfoOpen}
-                                bankData={bankData}
-                                setBankData={setBankData}
-                            />
-                        )}
-                    </div>
-                
+                    {companyinfoopen && (
+                        <CompanyInfo
+                            // open={companyinfoopen}
+                            // setCompanyInfoOpen={setCompanyInfoOpen}
+                            companyData={companyData}
+                            setCompanyData={setCompanyData}
+                        />
+                    )}
+                    <ProductInfo
+                        productData={productData}
+                        setProductData={setProductData}
+                        editingProduct={editingProduct}
+                        setEditingProduct={setEditingProduct}
+                        editIndex={editIndex}
+                        setEditIndex={setEditIndex} />
+                    {paymentinfoopen && (
+                        <PaymentInfo
+                            // open={paymentinfoopen}
+                            // setPaymentInfoOpen={setPaymentInfoOpen}
+                            paymentData={paymentData}
+                            setPaymentData={setPaymentData}
+                        />
+                    )}
+                    {bankinfoopen && (
+                        <BankInfo
+                            // open={bankinfoopen}
+                            // setBankInfoOpen={setBankInfoOpen}
+                            bankData={bankData}
+                            setBankData={setBankData}
+                        />
+                    )}
+                </div>
+
 
             </div>
 
