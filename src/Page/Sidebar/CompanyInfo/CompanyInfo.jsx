@@ -5,6 +5,8 @@ import { FaPlus } from "react-icons/fa";
 const CompanyInfo = ({ companyData, setCompanyData }) => {
   const [showCompanyModal, setShowCompanyModal] = useState(false);
   const [showCustomerModal, setShowCustomerModal] = useState(false);
+  
+  
 
   const [newCompany, setNewCompany] = useState({
     name: "WB Software Ltd.",
@@ -64,8 +66,8 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
 
   return (
     <div className="max-w-2xl p-5">
+      
       <h1 className="text-center font-bold text-2xl mb-5">Company Info</h1>
-
       {/* Buttons */}
       <div className="fflex justify-end p-5">
         <button
@@ -74,8 +76,6 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
         >
           <FaPlus size={14} /><span className="pl-2">Add Company Info</span>
         </button>
-
-
       </div>
 
       <h1 className="text-center font-bold text-2xl mb-5">Customer Info</h1>

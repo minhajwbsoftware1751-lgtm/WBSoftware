@@ -72,16 +72,17 @@ const Invoice = () => {
 
     const handleDeletePayment = (index) => {
         if (window.confirm("Are you sure to delete this row?")) {
-            const updated = paymentData.filter((_, i) => i !== index);
-            setPaymentData(updated);
+            const updated = paymentDataList.filter((_, i) => i !== index);
+            setPaymentDataList(updated);
         }
     };
 
     const handleEditPayment = (index) => {
-        const paymentToEdit = paymentData[index];
+        const paymentToEdit = paymentDataList[index];
         setEditingPayment(paymentToEdit);
         setEditIndex2(index);
     };
+
 
 
     const [productinfoopen, setProductInfoOpen] = useState(true);
@@ -244,7 +245,7 @@ const Invoice = () => {
                             </tr>
 
                             <tr>
-                               
+
                             </tr>
 
                             <tr>
@@ -495,47 +496,42 @@ const Invoice = () => {
                         </>
                     )}
 
-                {closingData.length > 0 && (
-                    <>
-                        <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
-                            Closing Calculation
-                        </h1>
+                {productData.reduce((sum, item) => sum + Number(item.total || 0), 0) > 0 &&
+                    paymentDataList.reduce((sum, item) => sum + Number(item.amount || 0), 0) > 0 && (
+                        <>
+                            <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
+                                Closing Calculation
+                            </h1>
 
-                        <div
-                            onClick={() => {
-                                // setClosingInfoOpen(true);
-                                // setOtherSectionsClosed();
-                            }}
-                            className="border-1 border-[#CBD5E1] mt-3 cursor-pointer hover:bg-gray-50"
-                        >
-                            <table className="min-w-full border-1 border-[#CBD5E1] text-center">
-                                <thead>
-                                    <tr className="bg-blue-100">
-                                        <th className="border-1 border-[#CBD5E1] py-2">Particular</th>
-                                        <th className="border-1 border-[#CBD5E1] py-2">Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {closingData.map((item, i) => (
-                                        <tr key={i} className="hover:bg-gray-50">
-                                            <td className="border-1 border-[#CBD5E1] px-4">{item.particular}</td>
-                                            <td className="border-1 border-[#CBD5E1] px-4">{item.amount}</td>
+                            <div className="border-1 border-[#CBD5E1] mt-3 cursor-pointer hover:bg-gray-50">
+                                <table className="min-w-full border-1 border-[#CBD5E1] text-center">
+                                    <thead>
+                                        <tr className="bg-blue-100">
+                                            <th className="border-1 border-[#CBD5E1] py-2">Product Total</th>
+                                            <th className="border-1 border-[#CBD5E1] py-2">Payment Total</th>
+                                            <th className="border-1 border-[#CBD5E1] py-2">Due</th>
                                         </tr>
-                                    ))}
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td className="border-1 border-[#CBD5E1] px-4">
+                                                {productData.reduce((sum, item) => sum + Number(item.total || 0), 0)}
+                                            </td>
+                                            <td className="border-1 border-[#CBD5E1] px-4">
+                                                {paymentDataList.reduce((sum, item) => sum + Number(item.amount || 0), 0)}
+                                            </td>
+                                            <td className="border-1 border-[#CBD5E1] px-4 font-semibold">
+                                                {productData.reduce((sum, item) => sum + Number(item.total || 0), 0) -
+                                                    paymentDataList.reduce((sum, item) => sum + Number(item.amount || 0), 0)}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </>
+                    )}
 
-                                    <tr>
-                                        <td className="border-1 border-[#CBD5E1] px-4 text-right font-semibold">
-                                            Total
-                                        </td>
-                                        <td className="border-1 border-[#CBD5E1] px-4 font-semibold">
-                                            {closingData.reduce((sum, item) => sum + Number(item.amount || 0), 0)}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </>
-                )}
+
 
 
                 <div className="border-1 border-[#CBD5E1] mt-3">
