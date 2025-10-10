@@ -1,207 +1,3 @@
-// import React from "react";
-// import { RiCloseLargeLine } from "react-icons/ri";
-
-// const CompanyInfo = ({ companyData, setCompanyData, setCompanyInfoOpen }) => {
-//     return (
-//         <div className="max-w-2xl p-5">
-//             <div className="flex justify-between items-center mb-6">
-//                 <h1 className="text-center font-bold text-2xl">Company</h1>
-               
-//             </div>
-
-//             <div className="flex flex-col gap-3 text-md border-b pb-6 mb-6">
-//                 <label className="flex flex-col">
-//                     Company Name:
-//                     <input
-//                         type="text"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={companyData.name}
-//                         onChange={(e) =>
-//                             setCompanyData({ ...companyData, name: e.target.value })
-//                         }
-//                     />
-//                 </label>
-
-//                 <label className="flex flex-col">
-//                     Email:
-//                     <input
-//                         type="email"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={companyData.email}
-//                         onChange={(e) =>
-//                             setCompanyData({ ...companyData, email: e.target.value })
-//                         }
-//                     />
-//                 </label>
-
-//                 <label className="flex flex-col">
-//                     Phone:
-//                     <input
-//                         type="number"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={companyData.phone}
-//                         onChange={(e) =>
-//                             setCompanyData({ ...companyData, phone: e.target.value })
-//                         }
-//                     />
-//                 </label>
-
-//                 <label className="flex flex-col">
-//                     Address:
-//                     <input
-//                         type="text"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={companyData.address}
-//                         onChange={(e) =>
-//                             setCompanyData({ ...companyData, address: e.target.value })
-//                         }
-//                     />
-//                 </label>
-
-//                 <div className="flex justify-between">
-//                     <label className="flex flex-col">
-//                         Invoice Date:
-//                         <input
-//                             type="date"
-//                             className="border border-gray-300 p-1 rounded mt-1 w-50 h-10"
-//                             value={companyData.date}
-//                             onChange={(e) =>
-//                                 setCompanyData({ ...companyData, date: e.target.value })
-//                             }
-//                         />
-//                     </label>
-
-//                     <label className="flex flex-col">
-//                         Invoice ID:
-//                         <input
-//                             type="number"
-//                             className="border border-gray-300 p-1 rounded mt-1 h-10"
-//                             value={companyData.invoiceid}
-//                             onChange={(e) =>
-//                                 setCompanyData({ ...companyData, invoiceid: e.target.value })
-//                             }
-//                         />
-//                     </label>
-//                 </div>
-
-//                 <label className="flex flex-col">
-//                     Salesman:
-//                     <input
-//                         type="text"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={companyData.salesman}
-//                         onChange={(e) =>
-//                             setCompanyData({ ...companyData, salesman: e.target.value })
-//                         }
-//                     />
-//                 </label>
-//             </div>
-
-//             <h1 className="text-left font-bold text-2xl mb-6">Customer Info</h1>
-//             <div className="flex flex-col gap-3 text-md">
-//                 <label className="flex flex-col">
-//                     Customer Name:
-//                     <input
-//                         type="text"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={companyData.customername}
-//                         onChange={(e) =>
-//                             setCompanyData({ ...companyData, customername: e.target.value })
-//                         }
-//                     />
-//                 </label>
-
-//                 <div className="flex justify-between">
-//                     <label className="flex flex-col">
-//                         CustomerID:
-//                         <input
-//                             type="number"
-//                             className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                             value={companyData.customerid}
-//                             onChange={(e) =>
-//                                 setCompanyData({ ...companyData, customerid: e.target.value })
-//                             }
-//                         />
-//                     </label>
-
-//                     <label className="flex flex-col">
-//                         Customer Phone:
-//                         <input
-//                             type="number"
-//                             className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                             value={companyData.customerphone}
-//                             onChange={(e) =>
-//                                 setCompanyData({ ...companyData, customerphone: e.target.value })
-//                             }
-//                         />
-//                     </label>
-//                 </div>
-
-//                 <label className="flex flex-col">
-//                     Customer Address:
-//                     <input
-//                         type="text"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={companyData.customeraddress}
-//                         onChange={(e) =>
-//                             setCompanyData({ ...companyData, customeraddress: e.target.value })
-//                         }
-//                     />
-//                 </label>
-
-//                 <div className="flex justify-between">
-//                     <label className="flex flex-col">
-//                         Payment Date:
-//                         <input
-//                             type="date"
-//                             className="border border-gray-300 p-1 rounded mt-1 w-50 h-10"
-//                             value={companyData.paymentdate}
-//                             onChange={(e) =>
-//                                 setCompanyData({ ...companyData, paymentdate: e.target.value })
-//                             }
-//                         />
-//                     </label>
-
-//                     <label className="flex flex-col">
-//                         ReceiptID:
-//                         <input
-//                             type="text"
-//                             className="border border-gray-300 p-1 rounded mt-1 h-10"
-//                             value={companyData.receiptid}
-//                             onChange={(e) =>
-//                                 setCompanyData({ ...companyData, receiptid: e.target.value })
-//                             }
-//                         />
-//                     </label>
-//                 </div>
-
-//                 <label className="flex flex-col">
-//                     Payment Method:
-//                     <select
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={companyData.paymentmethod}
-//                         onChange={(e) =>
-//                             setCompanyData({ ...companyData, paymentmethod: e.target.value })
-//                         }
-//                     >
-//                         <option value="">Select a method</option>
-//                         <option value="Cash">Cash</option>
-//                         <option value="Card">Card</option>
-//                         <option value="Bank Transfer">Bank Transfer</option>
-//                         <option value="Bkash">Bkash</option>
-//                         <option value="Nagad">Nagad</option>
-//                         <option value="Rocket">Rocket</option>
-//                     </select>
-//                 </label>
-
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default CompanyInfo;
-
-
 import { useState } from "react";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
@@ -211,11 +7,11 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
   const [showCustomerModal, setShowCustomerModal] = useState(false);
 
   const [newCompany, setNewCompany] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    date: "",
+    name: "WB Software Ltd.",
+    email: "wbsoftwaresteam@gmail.com",
+    phone: "+8801602024545",
+    address: "House# 375, Flat#3B, Road#28, Mohakhali DOSH, Dhaka",
+    date: new Date().toISOString().slice(0, 10),
     invoiceid: "",
     salesman: "",
   });
@@ -225,7 +21,7 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
     customerid: "",
     customerphone: "",
     customeraddress: "",
-    paymentdate: "",
+    paymentdate: new Date().toISOString().slice(0, 10),
     receiptid: "",
     paymentmethod: "",
   });
@@ -271,7 +67,7 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
       <h1 className="text-center font-bold text-2xl mb-5">Company Info</h1>
 
       {/* Buttons */}
-      <div className="flex justify-between gap-3 mb-5">
+      <div className="flex justify-center mb-5">
         <button
           onClick={() => setShowCompanyModal(true)}
           className="flex items-center border border-dashed p-2 rounded-lg hover:bg-gray-100"
@@ -279,6 +75,12 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
           <FaPlus size={14} /><span className="pl-2">Add Company Info</span>
         </button>
 
+        
+      </div>
+
+       <h1 className="text-center font-bold text-2xl mb-5">Customer Info</h1>
+      <div className="flex justify-center mb-5">
+        
         <button
           onClick={() => setShowCustomerModal(true)}
           className="flex items-center border border-dashed p-2 rounded-lg hover:bg-gray-100"

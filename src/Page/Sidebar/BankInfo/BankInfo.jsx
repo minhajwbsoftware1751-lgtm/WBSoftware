@@ -70,14 +70,19 @@ const BankInfo = ({ bankData, setBankData }) => {
   return (
     <div className="max-w-2xl p-5">
       <h1 className="text-center font-bold text-2xl mb-5">Bank Information</h1>
-
-      <div className="flex justify-between gap-3 mb-5">
+      <div className="flex justify-center mb-5">
         <button
           onClick={() => setShowBankModal(true)}
           className="flex items-center border border-dashed p-2 rounded-lg hover:bg-gray-100"
         >
           <FaPlus size={14} /><span className="pl-2">Add Bank Info</span>
         </button>
+
+      </div>
+
+      <h1 className="text-center font-bold text-2xl mb-5"> Information</h1>
+      <div className="flex justify-center">
+        
 
         <button
           onClick={() => setShowTransactionModal(true)}
@@ -86,6 +91,7 @@ const BankInfo = ({ bankData, setBankData }) => {
           <FaPlus size={14} /><span className="pl-2">Add Transaction Info</span>
         </button>
       </div>
+
 
       {showBankModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
