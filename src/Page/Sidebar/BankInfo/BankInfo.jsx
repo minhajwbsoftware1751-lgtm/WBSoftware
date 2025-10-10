@@ -14,10 +14,10 @@ const BankInfo = ({ bankData, setBankData }) => {
   });
 
   const [newTransaction, setNewTransaction] = useState({
-    bkash: "01700000000",
-    nagad: "01800000000",
-    rocket: "01900000000",
-    upay: "01600000000",
+     bkash: "01774444000 (Personal)",
+      nagad: "01774444000 (Personal)",
+      rocket: "017744440005 (Personal)",
+      upay: "01774444000 (Personal)",
   });
 
   const banks = [
@@ -68,22 +68,22 @@ const BankInfo = ({ bankData, setBankData }) => {
   };
 
   return (
-    <div className="max-w-2xl p-5">
-      <h1 className="text-center font-bold text-2xl mb-5">Bank Information</h1>
+    <div className="max-w-2xl p-5 pb-0">
+      <h1 className="text-left font-bold text-2xl mb-5">Bank Information</h1>
       <div className="flex justify-end p-5">
         <button
           onClick={() => setShowBankModal(true)}
-          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
         >
           <FaPlus size={14} /><span className="pl-2">Add Bank Info</span>
         </button>
       </div>
 
-      <h1 className="text-center font-bold text-2xl mb-5"> Information</h1>
+      <h1 className="text-left font-bold text-2xl mb-5">Transaction Information</h1>
       <div className="flex justify-end p-5">
         <button
           onClick={() => setShowTransactionModal(true)}
-          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
         >
           <FaPlus size={14} /><span className="pl-2">Add Transaction Info</span>
         </button>

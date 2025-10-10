@@ -71,12 +71,12 @@ const PaymentInfo = ({ paymentDataList, setPaymentDataList }) => {
   };
 
   return (
-    <div className="max-w-2xl p-5">
-      <h1 className="text-center font-bold text-2xl">Payment Information</h1>
+    <div className="max-w-2xl p-5 pb-0">
+      <h1 className="text-left font-bold text-2xl">Payment Information</h1>
       <div className="flex justify-end p-5">
         <button
           onClick={() => setShowModal(true)}
-          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
         >
           Add Payment Info
         </button>

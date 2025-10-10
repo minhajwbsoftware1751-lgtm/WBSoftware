@@ -6,8 +6,6 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
   const [showCompanyModal, setShowCompanyModal] = useState(false);
   const [showCustomerModal, setShowCustomerModal] = useState(false);
   
-  
-
   const [newCompany, setNewCompany] = useState({
     name: "WB Software Ltd.",
     email: "wbsoftwaresteam@gmail.com",
@@ -65,25 +63,25 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
   };
 
   return (
-    <div className="max-w-2xl p-5">
+    <div className="max-w-2xl p-5 pb-0">
       
-      <h1 className="text-center font-bold text-2xl mb-5">Company Info</h1>
+      <h1 className="text-left font-bold text-2xl mb-5">Company Info</h1>
       {/* Buttons */}
       <div className="fflex justify-end p-5">
         <button
           onClick={() => setShowCompanyModal(true)}
-          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
         >
           <FaPlus size={14} /><span className="pl-2">Add Company Info</span>
         </button>
       </div>
 
-      <h1 className="text-center font-bold text-2xl mb-5">Customer Info</h1>
+      <h1 className="text-left font-bold text-2xl mb-5">Customer Info</h1>
       <div className="flex justify-end p-5">
 
         <button
           onClick={() => setShowCustomerModal(true)}
-          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
         >
           <FaPlus size={14} /><span className="pl-2">Add Customer Info</span>
         </button>
