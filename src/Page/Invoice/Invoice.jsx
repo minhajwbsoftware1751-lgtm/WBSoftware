@@ -54,6 +54,8 @@ const Invoice = () => {
     const [companyinfoopen, setCompanyInfoOpen] = useState(true);
 
     const [productData, setProductData] = useState([]);
+    const [editIndex1, setEditIndex1] = useState(null);
+
 
     const handleDelete = (index) => {
         if (window.confirm("Are you sure to delete this row?")) {
@@ -62,18 +64,35 @@ const Invoice = () => {
         }
     };
 
-
     const [editingProduct, setEditingProduct] = useState(null);
-    const [editIndex, setEditIndex] = useState(null);
-
     const handleEdit = (index) => {
         const productToEdit = productData[index];
         setEditingProduct(productToEdit);
-        setEditIndex(index);
+        setEditIndex1(index);
+    };
+
+
+    const handleDeletePayment = (index) => {
+        if (window.confirm("Are you sure to delete this row?")) {
+            const updated = paymentData.filter((_, i) => i !== index);
+            setPaymentData(updated);
+        }
+    };
+
+    const handleEditPayment = (index) => {
+        const paymentToEdit = paymentData[index];
+        setEditingPayment(paymentToEdit);
+        setEditIndex2(index);
     };
 
 
     const [productinfoopen, setProductInfoOpen] = useState(true);
+
+    const [paymentDataList, setPaymentDataList] = useState([]);
+    const [editingPayment, setEditingPayment] = useState(null);
+    const [editIndex2, setEditIndex2] = useState(null);
+
+
 
     const [paymentData, setPaymentData] = useState({
         paymentdate: new Date().toISOString().slice(0, 10),
@@ -168,16 +187,16 @@ const Invoice = () => {
                         // setBankInfoOpen(false);
                         // setClosingInfoOpen(false);
                     }}
-                    className="border border-gray-300 mt-3"
+                    className="border-2 border-[#CBD5E1] mt-3"
                 >
 
-                    <table className="min-w-full border border-gray-300">
+                    <table className="min-w-full border-2 border-[#CBD5E1]">
                         <thead>
                             <tr className="bg-blue-100">
-                                <th colSpan={2} className="border border-gray-300 px-4 py-2 w-[50%]">
+                                <th colSpan={2} className="border-2 border-[#CBD5E1] px-4 py-2 w-[50%]">
                                     Company Information
                                 </th>
-                                <th colSpan={2} className="border border-gray-300 px-4 py-2 w-[50%]">
+                                <th colSpan={2} className="border-2 border-[#CBD5E1] px-4 py-2 w-[50%]">
                                     Customer Info
                                 </th>
                             </tr>
@@ -185,85 +204,85 @@ const Invoice = () => {
 
                         <tbody>
                             <tr>
-                                <td className="border-gray-300 px-4  text-left w-[15%]">Company</td>
-                                <td className="border-gray-300 px-4  text-left w-[35%] break-words">
+                                <td className="border-[#CBD5E1] px-4  text-left w-[15%]">Company</td>
+                                <td className="border-[#CBD5E1] px-4  text-left w-[35%] break-words">
                                     {companyData.name}
                                 </td>
-                                <td className="border-l border-gray-300 px-4  text-left w-[15%]">Customer</td>
-                                <td className="border-gray-300 px-4  text-left w-[35%] break-words">
+                                <td className="border-2-l border-[#CBD5E1] px-4  text-left w-[15%]">Customer</td>
+                                <td className="border-[#CBD5E1] px-4  text-left w-[35%] break-words">
                                     {companyData.customername}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4  text-left">Email</td>
-                                <td className="border-gray-300 px-4  text-left break-words">
+                                <td className="border-[#CBD5E1] px-4  text-left">Email</td>
+                                <td className="border-[#CBD5E1] px-4  text-left break-words">
                                     {companyData.email}
                                 </td>
-                                <td className="border-l border-gray-300 px-4  text-left">
+                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">
                                     CustomerID
                                 </td>
-                                <td className="border-gray-300 px-4  text-left">
+                                <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.customerid}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4  text-left">Phone</td>
-                                <td className="border-gray-300 px-4  text-left">
+                                <td className="border-[#CBD5E1] px-4  text-left">Phone</td>
+                                <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.phone}
                                 </td>
-                                <td className="border-l border-gray-300 px-4  text-left">Phone</td>
-                                <td className="border-gray-300 px-4  text-left">
+                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">Phone</td>
+                                <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.customerphone}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4  text-left align-top">Address</td>
-                                <td className="border-gray-300 px-4  text-left break-words align-top">
+                                <td className="border-[#CBD5E1] px-4  text-left align-top">Address</td>
+                                <td className="border-[#CBD5E1] px-4  text-left break-words align-top">
                                     {companyData.address}
                                 </td>
-                                <td className="border-l border-gray-300 px-4  text-left align-top">Address</td>
-                                <td className="border-gray-300 px-4  text-left break-words align-top">
+                                <td className="border-2-l border-[#CBD5E1] px-4  text-left align-top">Address</td>
+                                <td className="border-[#CBD5E1] px-4  text-left break-words align-top">
                                     {companyData.customeraddress}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td colSpan={4} className="border-t-1 border-gray-300"></td>
+                                <td colSpan={4} className="border-2-t-1 border-[#CBD5E1]"></td>
                             </tr>
 
                             <tr>
-                                <td className="border-gray-300 px-4  text-left">Invoice Date</td>
-                                <td className="border-gray-300 px-4  text-left">
+                                <td className="border-[#CBD5E1] px-4  text-left">Invoice Date</td>
+                                <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.date}
                                 </td>
-                                <td className="border-l border-gray-300 px-4  text-left">
+                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">
                                     Payment Date
                                 </td>
-                                <td className="border-gray-300 px-4  text-left">
+                                <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.paymentdate}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4  text-left">Invoice ID</td>
-                                <td className="border-gray-300 px-4  text-left">
+                                <td className="border-[#CBD5E1] px-4  text-left">Invoice ID</td>
+                                <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.invoiceid}
                                 </td>
-                                <td className="border-l border-gray-300 px-4  text-left">
+                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">
                                     Receipt ID
                                 </td>
-                                <td className="border-gray-300 px-4  text-left">
+                                <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.receiptid}
                                 </td>
                             </tr>
                             <tr>
-                                <td className="border-gray-300 px-4  text-left">Salesman</td>
-                                <td className="border-gray-300 px-4  text-left break-words">
+                                <td className="border-[#CBD5E1] px-4  text-left">Salesman</td>
+                                <td className="border-[#CBD5E1] px-4  text-left break-words">
                                     {companyData.salesman}
                                 </td>
-                                <td className="border-l border-gray-300 px-4  text-left">
+                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">
                                     Payment Method
                                 </td>
-                                <td className="border-gray-300 px-4  text-left">
+                                <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.paymentmethod}
                                 </td>
                             </tr>
@@ -287,24 +306,24 @@ const Invoice = () => {
                                 // setBankInfoOpen(false);
                                 // setClosingInfoOpen(false);
                             }}
-                            className="border border-gray-300 mt-3 cursor-pointer hover:bg-gray-50"
+                            className="border-2 border-[#CBD5E1] mt-3 cursor-pointer hover:bg-gray-50"
                         >
-                            <table className="min-w-full border border-gray-300 text-center">
+                            <table className="min-w-full border-2 border-[#CBD5E1] text-center">
                                 <thead>
                                     <tr className="bg-blue-100">
-                                        <th className="border border-gray-300 w-1/12 py-2">Serial</th>
-                                        <th className="border border-gray-300 w-1/3 py-2">Descriptions</th>
-                                        <th className="border border-gray-300 w-1/12 py-2">Total</th>
+                                        <th className="border-2 border-[#CBD5E1] w-1/12 py-2">Serial</th>
+                                        <th className="border-2 border-[#CBD5E1] w-1/3 py-2">Descriptions</th>
+                                        <th className="border-2 border-[#CBD5E1] w-1/12 py-2">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {productData.map((item, i) => (
                                         <tr key={i} className="h-10 group hover:bg-gray-50 relative">
-                                            <td className="border border-gray-300 px-4">{i + 1}</td>
-                                            <td className="border border-gray-300 px-4 break-words">
+                                            <td className="border-2 border-[#CBD5E1] px-4">{i + 1}</td>
+                                            <td className="border-2 border-[#CBD5E1] px-4 break-words">
                                                 {item.descriptions}
                                             </td>
-                                            <td className="border border-gray-300 px-4 relative">
+                                            <td className="border-2 border-[#CBD5E1] px-4 relative">
                                                 {item.total}
                                                 <div className="absolute right-2 top-1/2 -translate-y-1/2 hidden group-hover:flex gap-2">
                                                     <button
@@ -327,11 +346,11 @@ const Invoice = () => {
                                     <tr>
                                         <td
                                             colSpan={2}
-                                            className="border border-gray-300 px-4 py-2 text-right font-semibold"
+                                            className="border-2 border-[#CBD5E1] px-4 py-2 text-right font-semibold"
                                         >
                                             Total
                                         </td>
-                                        <td className="border border-gray-300 bg-blue-100 px-4 py-2 font-semibold">
+                                        <td className="border-2 border-[#CBD5E1] bg-blue-100 px-4 py-2 font-semibold">
                                             {productData.reduce((sum, item) => sum + Number(item.total || 0), 0)}
                                         </td>
                                     </tr>
@@ -342,44 +361,51 @@ const Invoice = () => {
                 )}
 
 
-                {paymentData.amount || paymentData.paymentdetails || paymentData.receive ? (
-                    <>
-                        <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
+                {paymentDataList.length > 0 && (
+                     <>
+                      <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
                             Payment Information
                         </h1>
-
-                        <div className="border border-gray-300 mt-3">
-                            <table className="min-w-full table-fixed border border-gray-300 text-center">
-                                <thead>
-                                    <tr className={`bg-${themeColor}`}>
-                                        <th className="border border-gray-300 w-1/12 py-2">SI</th>
-                                        <th className="border border-gray-300 w-1/12 py-2">Date</th>
-                                        <th className="border border-gray-300 w-1/3 py-2">Details</th>
-                                        <th className="border border-gray-300 w-1/12 py-2">Receive By</th>
-                                        <th className="border border-gray-300 w-1/12 py-2">Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr className="h-10">
-                                        <td className="border border-gray-300 px-4">1</td>
-                                        <td className="border border-gray-300 px-4">
-                                            {paymentData.paymentdate}
-                                        </td>
-                                        <td className="border border-gray-300 px-4 break-words">
-                                            {paymentData.paymentdetails}
-                                        </td>
-                                        <td className="border border-gray-300 px-4 break-words">
-                                            {paymentData.receive}
-                                        </td>
-                                        <td className="border border-gray-300 px-4">
-                                            {paymentData.amount}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                      <table className="min-w-full border-2 border-[#CBD5E1] text-center mt-3">
+                        <thead>
+                            <tr className="bg-blue-100">
+                                <th className="border-2 border-[#CBD5E1] py-2">SI</th>
+                                <th className="border-2 border-[#CBD5E1] py-2">Date</th>
+                                <th className="border-2 border-[#CBD5E1] py-2">Details</th>
+                                <th className="border-2 border-[#CBD5E1] py-2">Receive By</th>
+                                <th className="border-2 border-[#CBD5E1] py-2">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {paymentDataList.map((item, i) => (
+                                <tr key={i} className="h-10 group">
+                                    <td className="border-2 border-[#CBD5E1] px-4">{i + 1}</td>
+                                    <td className="border-2 border-[#CBD5E1] px-4">{item.paymentdate}</td>
+                                    <td className="border-2 border-[#CBD5E1] px-4 break-words">{item.paymentdetails}</td>
+                                    <td className="border-2 border-[#CBD5E1] px-4 break-words">{item.receive}</td>
+                                    <td className="border-2 border-[#CBD5E1] px-4 relative">{item.amount}
+                                        <div className="absolute right-2 top-1/2 -translate-y-1/2 hidden group-hover:flex gap-2">
+                                            <button
+                                                onClick={() => handleEditPayment(i)}
+                                                className="text-blue-500 hover:text-blue-700 text-sm"
+                                            >
+                                                <FaEdit />
+                                            </button>
+                                            <button
+                                                onClick={() => handleDeletePayment(i)}
+                                                className="text-red-500 hover:text-red-700 text-sm"
+                                            >
+                                                <MdDeleteForever />
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                     </>
-                ) : null}
+                   
+                )}
 
                 {/*Bank Information */}
                 {(
@@ -397,72 +423,72 @@ const Invoice = () => {
                                 Bank Information
                             </h1>
 
-                            <div className="border border-gray-300 mt-3">
-                                <table className="min-w-full table-fixed border border-gray-300 text-center">
+                            <div className="border-2 border-[#CBD5E1] mt-3">
+                                <table className="min-w-full table-fixed border-2 border-[#CBD5E1] text-center">
                                     <thead>
                                         <tr className="bg-blue-100">
-                                            <th colSpan={2} className="border border-gray-300 px-4 py-2">
+                                            <th colSpan={2} className="border-2 border-[#CBD5E1] px-4 py-2">
                                                 Bank Information
                                             </th>
-                                            <th colSpan={2} className="border border-gray-300 px-4 py-2">
+                                            <th colSpan={2} className="border-2 border-[#CBD5E1] px-4 py-2">
                                                 Transaction Information
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Bank
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.bankname}
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Bkash
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.bkash}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Branch
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.branch}
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Nagad
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.nagad}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Account No
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.accountno}
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Rocket
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.rocket}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Account Name
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.accountname}
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Upay
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2 text-left">
+                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.upay}
                                             </td>
                                         </tr>
@@ -485,28 +511,28 @@ const Invoice = () => {
                                 // setClosingInfoOpen(true);
                                 // setOtherSectionsClosed();
                             }}
-                            className="border border-gray-300 mt-3 cursor-pointer hover:bg-gray-50"
+                            className="border-2 border-[#CBD5E1] mt-3 cursor-pointer hover:bg-gray-50"
                         >
-                            <table className="min-w-full border border-gray-300 text-center">
+                            <table className="min-w-full border-2 border-[#CBD5E1] text-center">
                                 <thead>
                                     <tr className="bg-blue-100">
-                                        <th className="border border-gray-300 py-2">Particular</th>
-                                        <th className="border border-gray-300 py-2">Amount</th>
+                                        <th className="border-2 border-[#CBD5E1] py-2">Particular</th>
+                                        <th className="border-2 border-[#CBD5E1] py-2">Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {closingData.map((item, i) => (
                                         <tr key={i} className="hover:bg-gray-50">
-                                            <td className="border border-gray-300 px-4">{item.particular}</td>
-                                            <td className="border border-gray-300 px-4">{item.amount}</td>
+                                            <td className="border-2 border-[#CBD5E1] px-4">{item.particular}</td>
+                                            <td className="border-2 border-[#CBD5E1] px-4">{item.amount}</td>
                                         </tr>
                                     ))}
 
                                     <tr>
-                                        <td className="border border-gray-300 px-4 text-right font-semibold">
+                                        <td className="border-2 border-[#CBD5E1] px-4 text-right font-semibold">
                                             Total
                                         </td>
-                                        <td className="border border-gray-300 px-4 font-semibold">
+                                        <td className="border-2 border-[#CBD5E1] px-4 font-semibold">
                                             {closingData.reduce((sum, item) => sum + Number(item.amount || 0), 0)}
                                         </td>
                                     </tr>
@@ -517,20 +543,20 @@ const Invoice = () => {
                 )}
 
 
-                <div className="border border-gray-300 mt-3">
-                    <table className="min-w-full table-fixed border border-gray-300 text-center">
+                <div className="border-2 border-[#CBD5E1] mt-3">
+                    <table className="min-w-full table-fixed border-2 border-[#CBD5E1] text-center">
                         <thead>
                             <tr>
-                                <th className="border border-gray-300 px-4 py-2 h-40"></th>
-                                <th className="border border-gray-300 px-4 py-2 h-40"></th>
+                                <th className="border-2 border-[#CBD5E1] px-4 py-2 h-40"></th>
+                                <th className="border-2 border-[#CBD5E1] px-4 py-2 h-40"></th>
 
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td className="border border-gray-300 px-4 py-2 font-semibold text-center">SIGNATURE</td>
-                                <td className="border border-gray-300 px-4 py-2 font-semibold text-center">SIGNATURE</td>
+                                <td className="border-2 border-[#CBD5E1] px-4 py-2 font-semibold text-center">SIGNATURE</td>
+                                <td className="border-2 border-[#CBD5E1] px-4 py-2 font-semibold text-center">SIGNATURE</td>
                             </tr>
                         </tbody>
                     </table>
@@ -556,8 +582,8 @@ const Invoice = () => {
                             setProductData={setProductData}
                             editingProduct={editingProduct}
                             setEditingProduct={setEditingProduct}
-                            editIndex={editIndex}
-                            setEditIndex={setEditIndex}
+                            editIndex1={editIndex1}
+                            setEditIndex1={setEditIndex1}
                         />
                     </div>
                 )}
@@ -565,9 +591,14 @@ const Invoice = () => {
                 {paymentinfoopen && (
                     <div ref={paymentRef}>
                         <PaymentInfo
-                            paymentData={paymentData}
-                            setPaymentData={setPaymentData}
+                            paymentDataList={paymentDataList}
+                            setPaymentDataList={setPaymentDataList}
+                            editingPayment={editingPayment}
+                            setEditingPayment={setEditingPayment}
+                            editIndex2={editIndex2}
+                            setEditIndex2={setEditIndex2}
                         />
+
                     </div>
                 )}
 

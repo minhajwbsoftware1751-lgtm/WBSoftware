@@ -1,67 +1,227 @@
-import { useState } from "react";
+// import { useState } from "react";
+// import { RiCloseLargeLine } from "react-icons/ri";
+
+// const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
+
+//     return (
+//         <div className="max-w-2xl p-5">
+//             <div className="flex justify-between items-center mb-6">
+//                 <h1 className="text-center font-bold text-2xl">Payment Information</h1>
+//                 {/* <button onClick={() => setPaymentInfoOpen(false)}>
+//                     <RiCloseLargeLine size={24} />
+//                 </button> */}
+//             </div>
+//             <div className="flex flex-col gap-5 text-xl">
+//                 <label className="flex flex-col">
+//                     Payment Date:
+//                     <input
+//                         type="date"
+//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
+//                         value={paymentData.paymentdate}
+//                         onChange={(e) =>
+//                             setPaymentData({ ...paymentData, paymentdate: e.target.value })
+//                         }
+//                     />
+//                 </label>
+
+//                 <label className="flex flex-col">
+//                     Payment Details:
+//                     <input
+//                         type="text"
+//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
+//                         value={paymentData.paymentdetails}
+//                         onChange={(e) =>
+//                             setPaymentData({ ...paymentData, paymentdetails: e.target.value })
+//                         }
+//                     />
+//                 </label>
+
+//                 <label className="flex flex-col">
+//                     Receive By:
+//                     <input
+//                         type="text"
+//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
+//                         value={paymentData.receive}
+//                         onChange={(e) =>
+//                             setPaymentData({ ...paymentData, receive: e.target.value })
+//                         }
+//                     />
+//                 </label>
+
+//                 <label className="flex flex-col">
+//                     Amount:
+//                     <input
+//                         type="number"
+//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
+//                         value={paymentData.amount}
+//                         onChange={(e) =>
+//                             setPaymentData({ ...paymentData, amount: e.target.value })
+//                         }
+//                     />
+//                 </label>
+//             </div>
+//         </div>
+//     );
+// };
+// export default PaymentInfo;
+
+import { useState, useEffect } from "react";
 import { RiCloseLargeLine } from "react-icons/ri";
+import { FaEdit } from "react-icons/fa";
 
-const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
+const PaymentInfo = ({ paymentDataList, setPaymentDataList }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [editingPayment, setEditingPayment] = useState(null);
+  const [editIndex, setEditIndex] = useState(null);
 
-    return (
-        <div className="max-w-2xl p-5">
-            <div className="flex justify-between items-center mb-6">
-                <h1 className="text-center font-bold text-2xl">Payment Information</h1>
-                {/* <button onClick={() => setPaymentInfoOpen(false)}>
-                    <RiCloseLargeLine size={24} />
-                </button> */}
+  const [newPayment, setNewPayment] = useState({
+    paymentdate: new Date().toISOString().slice(0, 10),
+    paymentdetails: "",
+    receive: "",
+    amount: "",
+  });
+
+  useEffect(() => {
+    if (editingPayment !== null) {
+      setNewPayment(editingPayment);
+      setShowModal(true);
+    }
+  }, [editingPayment]);
+
+  const handleSave = () => {
+    if (!newPayment.paymentdate || !newPayment.paymentdetails || !newPayment.receive || !newPayment.amount) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    if (editIndex !== null) {
+      const updated = [...paymentDataList];
+      updated[editIndex] = newPayment;
+      setPaymentDataList(updated);
+      setEditIndex(null);
+      setEditingPayment(null);
+    } else {
+      setPaymentDataList([...paymentDataList, newPayment]);
+    }
+
+    setNewPayment({
+      paymentdate: new Date().toISOString().slice(0, 10),
+      paymentdetails: "",
+      receive: "",
+      amount: "",
+    });
+    setShowModal(false);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+    setEditIndex(null);
+    setEditingPayment(null);
+    setNewPayment({
+      paymentdate: new Date().toISOString().slice(0, 10),
+      paymentdetails: "",
+      receive: "",
+      amount: "",
+    });
+  };
+
+  const handleEdit = (index) => {
+    setEditingPayment(paymentDataList[index]);
+    setEditIndex(index);
+  };
+
+  const handleDelete = (index) => {
+    if (window.confirm("Are you sure to delete this payment?")) {
+      const updated = paymentDataList.filter((_, i) => i !== index);
+      setPaymentDataList(updated);
+    }
+  };
+
+  return (
+    <div className="max-w-2xl p-5">
+       <h1 className="text-center font-bold text-2xl">Payment Information</h1>
+      <div className="flex justify-end p-5">
+        <button
+          onClick={() => setShowModal(true)}
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
+        >
+          Add Payment Info
+        </button>
+      </div>
+
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+          <div className="bg-white rounded-lg shadow-xl w-96 p-5 relative">
+            <button
+              onClick={handleClose}
+              className="absolute top-6 right-3 text-gray-700 hover:text-red-500"
+            >
+              <RiCloseLargeLine size={22} />
+            </button>
+
+            <h2 className="text-xl font-bold mb-4">
+              {editIndex !== null ? "Edit Payment" : "Add Payment"}
+            </h2>
+
+            <label className="flex flex-col mb-3">
+              Payment Date:
+              <input
+                type="date"
+                className="border border-gray-300 p-2 rounded mt-1"
+                value={newPayment.paymentdate}
+                onChange={(e) => setNewPayment({ ...newPayment, paymentdate: e.target.value })}
+              />
+            </label>
+
+            <label className="flex flex-col mb-3">
+              Payment Details:
+              <input
+                type="text"
+                className="border border-gray-300 p-2 rounded mt-1"
+                value={newPayment.paymentdetails}
+                onChange={(e) => setNewPayment({ ...newPayment, paymentdetails: e.target.value })}
+              />
+            </label>
+
+            <label className="flex flex-col mb-3">
+              Receive By:
+              <input
+                type="text"
+                className="border border-gray-300 p-2 rounded mt-1"
+                value={newPayment.receive}
+                onChange={(e) => setNewPayment({ ...newPayment, receive: e.target.value })}
+              />
+            </label>
+
+            <label className="flex flex-col mb-3">
+              Amount:
+              <input
+                type="number"
+                className="border border-gray-300 p-2 rounded mt-1"
+                value={newPayment.amount}
+                onChange={(e) => setNewPayment({ ...newPayment, amount: e.target.value })}
+              />
+            </label>
+
+            <div className="flex justify-end gap-3 mt-4">
+              <button
+                onClick={handleClose}
+                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSave}
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500"
+              >
+                Save
+              </button>
             </div>
-            <div className="flex flex-col gap-5 text-xl">
-                <label className="flex flex-col">
-                    Payment Date:
-                    <input
-                        type="date"
-                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-                        value={paymentData.paymentdate}
-                        onChange={(e) =>
-                            setPaymentData({ ...paymentData, paymentdate: e.target.value })
-                        }
-                    />
-                </label>
-
-                <label className="flex flex-col">
-                    Payment Details:
-                    <input
-                        type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-                        value={paymentData.paymentdetails}
-                        onChange={(e) =>
-                            setPaymentData({ ...paymentData, paymentdetails: e.target.value })
-                        }
-                    />
-                </label>
-
-                <label className="flex flex-col">
-                    Receive By:
-                    <input
-                        type="text"
-                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-                        value={paymentData.receive}
-                        onChange={(e) =>
-                            setPaymentData({ ...paymentData, receive: e.target.value })
-                        }
-                    />
-                </label>
-
-                <label className="flex flex-col">
-                    Amount:
-                    <input
-                        type="number"
-                        className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-                        value={paymentData.amount}
-                        onChange={(e) =>
-                            setPaymentData({ ...paymentData, amount: e.target.value })
-                        }
-                    />
-                </label>
-            </div>
+          </div>
         </div>
-    );
+      )}
+    </div>
+  );
 };
-export default PaymentInfo;
 
+export default PaymentInfo;
