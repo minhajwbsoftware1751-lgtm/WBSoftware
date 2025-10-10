@@ -92,19 +92,22 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
       {/* Company Modal */}
       {showCompanyModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-          <div className="bg-white rounded-lg shadow-xl w-96 p-5 relative">
+          <div className="bg-white rounded-lg shadow-xl w-auto p-5 relative">
             <button onClick={handleCompanyClose} className="absolute top-6 right-3 text-gray-700 hover:text-red-500">
               <RiCloseLargeLine size={22} />
             </button>
 
             <h2 className="text-xl font-bold mb-4">Company Information</h2>
 
-            <label className="flex flex-col mb-2">
+            <div>
+              <label className="flex flex-col mb-2">
               Company Name:
               <input type="text" value={newCompany.name} onChange={(e) => setNewCompany({ ...newCompany, name: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
             </label>
 
-            <label className="flex flex-col mb-2">
+            
+              <div className="flex justify-between gap-2">
+                <label className="flex flex-col mb-2">
               Email:
               <input type="email" value={newCompany.email} onChange={(e) => setNewCompany({ ...newCompany, email: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
             </label>
@@ -114,6 +117,7 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
               <input type="number" value={newCompany.phone} onChange={(e) => setNewCompany({ ...newCompany, phone: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
             </label>
 
+              </div>
             <label className="flex flex-col mb-2">
               Address:
               <input type="text" value={newCompany.address} onChange={(e) => setNewCompany({ ...newCompany, address: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
@@ -135,6 +139,7 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
               Salesman:
               <input type="text" value={newCompany.salesman} onChange={(e) => setNewCompany({ ...newCompany, salesman: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
             </label>
+            </div>
 
             <div className="flex justify-end gap-3 mt-4">
               <button onClick={handleCompanyClose} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500">Cancel</button>
@@ -147,7 +152,7 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
       {/* Customer Modal */}
       {showCustomerModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-          <div className="bg-white rounded-lg shadow-xl w-96 p-5 relative">
+          <div className="bg-white rounded-lg shadow-xl w-auto p-5 relative">
             <button onClick={handleCustomerClose} className="absolute top-6 right-3 text-gray-700 hover:text-red-500">
               <RiCloseLargeLine size={22} />
             </button>

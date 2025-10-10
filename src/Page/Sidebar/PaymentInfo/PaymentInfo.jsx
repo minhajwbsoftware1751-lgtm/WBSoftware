@@ -84,7 +84,7 @@ const PaymentInfo = ({ paymentDataList, setPaymentDataList }) => {
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-          <div className="bg-white rounded-lg shadow-xl w-96 p-5 relative">
+          <div className="bg-white rounded-lg shadow-xl w-auto p-5 relative">
             <button
               onClick={handleClose}
               className="absolute top-6 right-3 text-gray-700 hover:text-red-500"
@@ -95,16 +95,6 @@ const PaymentInfo = ({ paymentDataList, setPaymentDataList }) => {
             <h2 className="text-xl font-bold mb-4">
               {editIndex !== null ? "Edit Payment" : "Add Payment"}
             </h2>
-
-            <label className="flex flex-col mb-3">
-              Payment Date:
-              <input
-                type="date"
-                className="border border-gray-300 p-2 rounded mt-1"
-                value={newPayment.paymentdate}
-                onChange={(e) => setNewPayment({ ...newPayment, paymentdate: e.target.value })}
-              />
-            </label>
 
             <label className="flex flex-col mb-3">
               Payment Details:
@@ -126,6 +116,17 @@ const PaymentInfo = ({ paymentDataList, setPaymentDataList }) => {
               />
             </label>
 
+           <div className="flex justify-between gap-2">
+              <label className="flex flex-col mb-3">
+              Payment Date:
+              <input
+                type="date"
+                className="border border-gray-300 p-2 rounded mt-1"
+                value={newPayment.paymentdate}
+                onChange={(e) => setNewPayment({ ...newPayment, paymentdate: e.target.value })}
+              />
+            </label>
+
             <label className="flex flex-col mb-3">
               Amount:
               <input
@@ -135,6 +136,7 @@ const PaymentInfo = ({ paymentDataList, setPaymentDataList }) => {
                 onChange={(e) => setNewPayment({ ...newPayment, amount: e.target.value })}
               />
             </label>
+            </div>
 
             <div className="flex justify-end gap-3 mt-4">
               <button
