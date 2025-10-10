@@ -1,70 +1,3 @@
-// import { useState } from "react";
-// import { RiCloseLargeLine } from "react-icons/ri";
-
-// const PaymentInfo = ({ paymentData, setPaymentData, setPaymentInfoOpen }) => {
-
-//     return (
-//         <div className="max-w-2xl p-5">
-//             <div className="flex justify-between items-center mb-6">
-//                 <h1 className="text-center font-bold text-2xl">Payment Information</h1>
-//                 {/* <button onClick={() => setPaymentInfoOpen(false)}>
-//                     <RiCloseLargeLine size={24} />
-//                 </button> */}
-//             </div>
-//             <div className="flex flex-col gap-5 text-xl">
-//                 <label className="flex flex-col">
-//                     Payment Date:
-//                     <input
-//                         type="date"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={paymentData.paymentdate}
-//                         onChange={(e) =>
-//                             setPaymentData({ ...paymentData, paymentdate: e.target.value })
-//                         }
-//                     />
-//                 </label>
-
-//                 <label className="flex flex-col">
-//                     Payment Details:
-//                     <input
-//                         type="text"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={paymentData.paymentdetails}
-//                         onChange={(e) =>
-//                             setPaymentData({ ...paymentData, paymentdetails: e.target.value })
-//                         }
-//                     />
-//                 </label>
-
-//                 <label className="flex flex-col">
-//                     Receive By:
-//                     <input
-//                         type="text"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={paymentData.receive}
-//                         onChange={(e) =>
-//                             setPaymentData({ ...paymentData, receive: e.target.value })
-//                         }
-//                     />
-//                 </label>
-
-//                 <label className="flex flex-col">
-//                     Amount:
-//                     <input
-//                         type="number"
-//                         className="border border-gray-300 p-0.5 rounded mt-1 h-10"
-//                         value={paymentData.amount}
-//                         onChange={(e) =>
-//                             setPaymentData({ ...paymentData, amount: e.target.value })
-//                         }
-//                     />
-//                 </label>
-//             </div>
-//         </div>
-//     );
-// };
-// export default PaymentInfo;
-
 import { useState, useEffect } from "react";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
@@ -139,7 +72,7 @@ const PaymentInfo = ({ paymentDataList, setPaymentDataList }) => {
 
   return (
     <div className="max-w-2xl p-5">
-       <h1 className="text-center font-bold text-2xl">Payment Information</h1>
+      <h1 className="text-center font-bold text-2xl">Payment Information</h1>
       <div className="flex justify-end p-5">
         <button
           onClick={() => setShowModal(true)}

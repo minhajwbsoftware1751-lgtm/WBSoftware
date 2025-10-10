@@ -16,8 +16,6 @@ import { IoColorPalette } from "react-icons/io5";
 
 
 const Invoice = () => {
-
-
     const handlePrint = () => {
         window.print();
     };
@@ -109,7 +107,7 @@ const Invoice = () => {
         accountname: "No",
         bkash: "01774444000 (Personal)",
         nagad: "01774444000 (Personal)",
-        rocket: "017744440004 (Personal)",
+        rocket: "017744440005 (Personal)",
         upay: "01774444000 (Personal)",
     });
     const [bankinfoopen, setBankInfoOpen] = useState(true);
@@ -187,16 +185,15 @@ const Invoice = () => {
                         // setBankInfoOpen(false);
                         // setClosingInfoOpen(false);
                     }}
-                    className="border-2 border-[#CBD5E1] mt-3"
-                >
+                    className="border-1 border-[#CBD5E1] mt-3">
 
-                    <table className="min-w-full border-2 border-[#CBD5E1]">
+                    <table className="min-w-full border-1 border-[#CBD5E1]">
                         <thead>
                             <tr className="bg-blue-100">
-                                <th colSpan={2} className="border-2 border-[#CBD5E1] px-4 py-2 w-[50%]">
+                                <th colSpan={2} className="border-1 border-[#CBD5E1] px-4 py-2 w-[50%]">
                                     Company Information
                                 </th>
-                                <th colSpan={2} className="border-2 border-[#CBD5E1] px-4 py-2 w-[50%]">
+                                <th colSpan={2} className="border-1 border-[#CBD5E1] px-4 py-2 w-[50%]">
                                     Customer Info
                                 </th>
                             </tr>
@@ -208,7 +205,7 @@ const Invoice = () => {
                                 <td className="border-[#CBD5E1] px-4  text-left w-[35%] break-words">
                                     {companyData.name}
                                 </td>
-                                <td className="border-2-l border-[#CBD5E1] px-4  text-left w-[15%]">Customer</td>
+                                <td className="border-l-1 border-[#CBD5E1] px-4  text-left w-[15%]">Customer</td>
                                 <td className="border-[#CBD5E1] px-4  text-left w-[35%] break-words">
                                     {companyData.customername}
                                 </td>
@@ -218,7 +215,7 @@ const Invoice = () => {
                                 <td className="border-[#CBD5E1] px-4  text-left break-words">
                                     {companyData.email}
                                 </td>
-                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">
+                                <td className="border-l-1 border-[#CBD5E1] px-4  text-left">
                                     CustomerID
                                 </td>
                                 <td className="border-[#CBD5E1] px-4  text-left">
@@ -230,7 +227,7 @@ const Invoice = () => {
                                 <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.phone}
                                 </td>
-                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">Phone</td>
+                                <td className="border-l-1 border-[#CBD5E1] px-4  text-left">Phone</td>
                                 <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.customerphone}
                                 </td>
@@ -240,25 +237,25 @@ const Invoice = () => {
                                 <td className="border-[#CBD5E1] px-4  text-left break-words align-top">
                                     {companyData.address}
                                 </td>
-                                <td className="border-2-l border-[#CBD5E1] px-4  text-left align-top">Address</td>
+                                <td className="border-l-1 border-[#CBD5E1] px-4  text-left align-top">Address</td>
                                 <td className="border-[#CBD5E1] px-4  text-left break-words align-top">
                                     {companyData.customeraddress}
                                 </td>
                             </tr>
 
                             <tr>
-                                <td colSpan={4} className="border-2-t-1 border-[#CBD5E1]"></td>
+                               
                             </tr>
 
                             <tr>
-                                <td className="border-[#CBD5E1] px-4  text-left">Invoice Date</td>
-                                <td className="border-[#CBD5E1] px-4  text-left">
+                                <td className="border-t-1 border-[#CBD5E1] px-4  text-left">Invoice Date</td>
+                                <td className="border-t-1 border-[#CBD5E1] px-4  text-left">
                                     {companyData.date}
                                 </td>
-                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">
+                                <td className="border-l-1 border-t-1 border-[#CBD5E1] px-4  text-left">
                                     Payment Date
                                 </td>
-                                <td className="border-[#CBD5E1] px-4  text-left">
+                                <td className="border-t-1 border-[#CBD5E1] px-4  text-left">
                                     {companyData.paymentdate}
                                 </td>
                             </tr>
@@ -267,7 +264,7 @@ const Invoice = () => {
                                 <td className="border-[#CBD5E1] px-4  text-left">
                                     {companyData.invoiceid}
                                 </td>
-                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">
+                                <td className="border-l-1 border-[#CBD5E1] px-4  text-left">
                                     Receipt ID
                                 </td>
                                 <td className="border-[#CBD5E1] px-4  text-left">
@@ -279,7 +276,7 @@ const Invoice = () => {
                                 <td className="border-[#CBD5E1] px-4  text-left break-words">
                                     {companyData.salesman}
                                 </td>
-                                <td className="border-2-l border-[#CBD5E1] px-4  text-left">
+                                <td className="border-l-1 border-[#CBD5E1] px-4  text-left">
                                     Payment Method
                                 </td>
                                 <td className="border-[#CBD5E1] px-4  text-left">
@@ -306,24 +303,24 @@ const Invoice = () => {
                                 // setBankInfoOpen(false);
                                 // setClosingInfoOpen(false);
                             }}
-                            className="border-2 border-[#CBD5E1] mt-3 cursor-pointer hover:bg-gray-50"
+                            className="border-1 border-[#CBD5E1] mt-3 cursor-pointer hover:bg-gray-50"
                         >
-                            <table className="min-w-full border-2 border-[#CBD5E1] text-center">
+                            <table className="min-w-full border-1 border-[#CBD5E1] text-center">
                                 <thead>
                                     <tr className="bg-blue-100">
-                                        <th className="border-2 border-[#CBD5E1] w-1/12 py-2">Serial</th>
-                                        <th className="border-2 border-[#CBD5E1] w-1/3 py-2">Descriptions</th>
-                                        <th className="border-2 border-[#CBD5E1] w-1/12 py-2">Total</th>
+                                        <th className="border-1 border-[#CBD5E1] w-1/12 py-2">Serial</th>
+                                        <th className="border-1 border-[#CBD5E1] w-1/3 py-2">Descriptions</th>
+                                        <th className="border-1 border-[#CBD5E1] w-1/12 py-2">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {productData.map((item, i) => (
                                         <tr key={i} className="h-10 group hover:bg-gray-50 relative">
-                                            <td className="border-2 border-[#CBD5E1] px-4">{i + 1}</td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 break-words">
+                                            <td className="border-1 border-[#CBD5E1] px-4">{i + 1}</td>
+                                            <td className="border-1 border-[#CBD5E1] px-4 break-words">
                                                 {item.descriptions}
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 relative">
+                                            <td className="border-1 border-[#CBD5E1] px-4 relative">
                                                 {item.total}
                                                 <div className="absolute right-2 top-1/2 -translate-y-1/2 hidden group-hover:flex gap-2">
                                                     <button
@@ -346,11 +343,11 @@ const Invoice = () => {
                                     <tr>
                                         <td
                                             colSpan={2}
-                                            className="border-2 border-[#CBD5E1] px-4 py-2 text-right font-semibold"
+                                            className="border-1 border-[#CBD5E1] px-4 py-2 text-right font-semibold"
                                         >
                                             Total
                                         </td>
-                                        <td className="border-2 border-[#CBD5E1] bg-blue-100 px-4 py-2 font-semibold">
+                                        <td className="border-1 border-[#CBD5E1] bg-blue-100 px-4 py-2 font-semibold">
                                             {productData.reduce((sum, item) => sum + Number(item.total || 0), 0)}
                                         </td>
                                     </tr>
@@ -362,49 +359,49 @@ const Invoice = () => {
 
 
                 {paymentDataList.length > 0 && (
-                     <>
-                      <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
+                    <>
+                        <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
                             Payment Information
                         </h1>
-                      <table className="min-w-full border-2 border-[#CBD5E1] text-center mt-3">
-                        <thead>
-                            <tr className="bg-blue-100">
-                                <th className="border-2 border-[#CBD5E1] py-2">SI</th>
-                                <th className="border-2 border-[#CBD5E1] py-2">Date</th>
-                                <th className="border-2 border-[#CBD5E1] py-2">Details</th>
-                                <th className="border-2 border-[#CBD5E1] py-2">Receive By</th>
-                                <th className="border-2 border-[#CBD5E1] py-2">Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {paymentDataList.map((item, i) => (
-                                <tr key={i} className="h-10 group">
-                                    <td className="border-2 border-[#CBD5E1] px-4">{i + 1}</td>
-                                    <td className="border-2 border-[#CBD5E1] px-4">{item.paymentdate}</td>
-                                    <td className="border-2 border-[#CBD5E1] px-4 break-words">{item.paymentdetails}</td>
-                                    <td className="border-2 border-[#CBD5E1] px-4 break-words">{item.receive}</td>
-                                    <td className="border-2 border-[#CBD5E1] px-4 relative">{item.amount}
-                                        <div className="absolute right-2 top-1/2 -translate-y-1/2 hidden group-hover:flex gap-2">
-                                            <button
-                                                onClick={() => handleEditPayment(i)}
-                                                className="text-blue-500 hover:text-blue-700 text-sm"
-                                            >
-                                                <FaEdit />
-                                            </button>
-                                            <button
-                                                onClick={() => handleDeletePayment(i)}
-                                                className="text-red-500 hover:text-red-700 text-sm"
-                                            >
-                                                <MdDeleteForever />
-                                            </button>
-                                        </div>
-                                    </td>
+                        <table className="min-w-full border-1 border-[#CBD5E1] text-center mt-3">
+                            <thead>
+                                <tr className="bg-blue-100">
+                                    <th className="border-1 border-[#CBD5E1] w-1/12 py-2">SI</th>
+                                    <th className="border-1 border-[#CBD5E1] w-2/12 py-2">Date</th>
+                                    <th className="border-1 border-[#CBD5E1] w-6/12 py-2">Details</th>
+                                    <th className="border-1 border-[#CBD5E1] w-2/12 py-2">Receive By</th>
+                                    <th className="border-1 border-[#CBD5E1] w-2/12 py-2">Amount</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {paymentDataList.map((item, i) => (
+                                    <tr key={i} className="h-10 group">
+                                        <td className="border-1 border-[#CBD5E1] px-4">{i + 1}</td>
+                                        <td className="border-1 border-[#CBD5E1] px-4">{item.paymentdate}</td>
+                                        <td className="border-1 border-[#CBD5E1] px-4 break-words">{item.paymentdetails}</td>
+                                        <td className="border-1 border-[#CBD5E1] px-4 break-words">{item.receive}</td>
+                                        <td className="border-1 border-[#CBD5E1] px-4 relative">{item.amount}
+                                            <div className="absolute right-2 top-1/2 -translate-y-1/2 hidden group-hover:flex gap-2">
+                                                <button
+                                                    onClick={() => handleEditPayment(i)}
+                                                    className="text-blue-500 hover:text-blue-700 text-sm"
+                                                >
+                                                    <FaEdit />
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDeletePayment(i)}
+                                                    className="text-red-500 hover:text-red-700 text-sm"
+                                                >
+                                                    <MdDeleteForever />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </>
-                   
+
                 )}
 
                 {/*Bank Information */}
@@ -415,7 +412,7 @@ const Invoice = () => {
                     bankData.accountname !== "No" ||
                     bankData.bkash !== "01774444000 (Personal)" ||
                     bankData.nagad !== "01774444000 (Personal)" ||
-                    bankData.rocket !== "017744440004 (Personal)" ||
+                    bankData.rocket !== "017744440005 (Personal)" ||
                     bankData.upay !== "01774444000 (Personal)"
                 ) && (
                         <>
@@ -423,72 +420,72 @@ const Invoice = () => {
                                 Bank Information
                             </h1>
 
-                            <div className="border-2 border-[#CBD5E1] mt-3">
-                                <table className="min-w-full table-fixed border-2 border-[#CBD5E1] text-center">
+                            <div className="border-1 border-[#CBD5E1] mt-3">
+                                <table className="min-w-full table-fixed border-1 border-[#CBD5E1] text-center">
                                     <thead>
                                         <tr className="bg-blue-100">
-                                            <th colSpan={2} className="border-2 border-[#CBD5E1] px-4 py-2">
+                                            <th colSpan={2} className="border-1 border-[#CBD5E1] w-6/12 px-4 py-2">
                                                 Bank Information
                                             </th>
-                                            <th colSpan={2} className="border-2 border-[#CBD5E1] px-4 py-2">
+                                            <th colSpan={2} className="border-1 border-[#CBD5E1] w-6/12 px-4 py-2">
                                                 Transaction Information
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 w-2/12 text-left">
                                                 Bank
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 w-4/12 text-left">
                                                 {bankData.bankname}
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2  w-2/12 text-left">
                                                 Bkash
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 w-4/12 text-left">
                                                 {bankData.bkash}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Branch
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.branch}
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Nagad
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.nagad}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Account No
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.accountno}
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Rocket
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.rocket}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Account Name
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.accountname}
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 Upay
                                             </td>
-                                            <td className="border-2 border-[#CBD5E1] px-4 py-2 text-left">
+                                            <td className="border-1 border-[#CBD5E1] px-4 py-2 text-left">
                                                 {bankData.upay}
                                             </td>
                                         </tr>
@@ -498,8 +495,6 @@ const Invoice = () => {
                         </>
                     )}
 
-
-                {/* Closing Calculation */}
                 {closingData.length > 0 && (
                     <>
                         <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
@@ -511,28 +506,28 @@ const Invoice = () => {
                                 // setClosingInfoOpen(true);
                                 // setOtherSectionsClosed();
                             }}
-                            className="border-2 border-[#CBD5E1] mt-3 cursor-pointer hover:bg-gray-50"
+                            className="border-1 border-[#CBD5E1] mt-3 cursor-pointer hover:bg-gray-50"
                         >
-                            <table className="min-w-full border-2 border-[#CBD5E1] text-center">
+                            <table className="min-w-full border-1 border-[#CBD5E1] text-center">
                                 <thead>
                                     <tr className="bg-blue-100">
-                                        <th className="border-2 border-[#CBD5E1] py-2">Particular</th>
-                                        <th className="border-2 border-[#CBD5E1] py-2">Amount</th>
+                                        <th className="border-1 border-[#CBD5E1] py-2">Particular</th>
+                                        <th className="border-1 border-[#CBD5E1] py-2">Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {closingData.map((item, i) => (
                                         <tr key={i} className="hover:bg-gray-50">
-                                            <td className="border-2 border-[#CBD5E1] px-4">{item.particular}</td>
-                                            <td className="border-2 border-[#CBD5E1] px-4">{item.amount}</td>
+                                            <td className="border-1 border-[#CBD5E1] px-4">{item.particular}</td>
+                                            <td className="border-1 border-[#CBD5E1] px-4">{item.amount}</td>
                                         </tr>
                                     ))}
 
                                     <tr>
-                                        <td className="border-2 border-[#CBD5E1] px-4 text-right font-semibold">
+                                        <td className="border-1 border-[#CBD5E1] px-4 text-right font-semibold">
                                             Total
                                         </td>
-                                        <td className="border-2 border-[#CBD5E1] px-4 font-semibold">
+                                        <td className="border-1 border-[#CBD5E1] px-4 font-semibold">
                                             {closingData.reduce((sum, item) => sum + Number(item.amount || 0), 0)}
                                         </td>
                                     </tr>
@@ -543,20 +538,20 @@ const Invoice = () => {
                 )}
 
 
-                <div className="border-2 border-[#CBD5E1] mt-3">
-                    <table className="min-w-full table-fixed border-2 border-[#CBD5E1] text-center">
+                <div className="border-1 border-[#CBD5E1] mt-3">
+                    <table className="min-w-full table-fixed border-1 border-[#CBD5E1] text-center">
                         <thead>
                             <tr>
-                                <th className="border-2 border-[#CBD5E1] px-4 py-2 h-40"></th>
-                                <th className="border-2 border-[#CBD5E1] px-4 py-2 h-40"></th>
+                                <th className="border-1 border-[#CBD5E1] px-4 py-2 h-40"></th>
+                                <th className="border-1 border-[#CBD5E1] px-4 py-2 h-40"></th>
 
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td className="border-2 border-[#CBD5E1] px-4 py-2 font-semibold text-center">SIGNATURE</td>
-                                <td className="border-2 border-[#CBD5E1] px-4 py-2 font-semibold text-center">SIGNATURE</td>
+                                <td className="border-1 border-[#CBD5E1] px-4 py-2 font-semibold text-center">SIGNATURE</td>
+                                <td className="border-1 border-[#CBD5E1] px-4 py-2 font-semibold text-center">SIGNATURE</td>
                             </tr>
                         </tbody>
                     </table>
@@ -582,9 +577,10 @@ const Invoice = () => {
                             setProductData={setProductData}
                             editingProduct={editingProduct}
                             setEditingProduct={setEditingProduct}
-                            editIndex1={editIndex1}
-                            setEditIndex1={setEditIndex1}
+                            editIndex={editIndex1}
+                            setEditIndex={setEditIndex1}
                         />
+
                     </div>
                 )}
 

@@ -60,33 +60,30 @@ const BankInfo = ({ bankData, setBankData }) => {
   const handleTransactionClose = () => {
     setShowTransactionModal(false);
     setNewTransaction({
-      bkash: "01700000000",
-      nagad: "01800000000",
-      rocket: "01900000000",
-      upay: "01600000000",
+      bkash: "01774444000 (Personal)",
+      nagad: "01774444000 (Personal)",
+      rocket: "017744440005 (Personal)",
+      upay: "01774444000 (Personal)",
     });
   };
 
   return (
     <div className="max-w-2xl p-5">
       <h1 className="text-center font-bold text-2xl mb-5">Bank Information</h1>
-      <div className="flex justify-center mb-5">
+      <div className="flex justify-end p-5">
         <button
           onClick={() => setShowBankModal(true)}
-          className="flex items-center border border-dashed p-2 rounded-lg hover:bg-gray-100"
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
         >
           <FaPlus size={14} /><span className="pl-2">Add Bank Info</span>
         </button>
-
       </div>
 
       <h1 className="text-center font-bold text-2xl mb-5"> Information</h1>
-      <div className="flex justify-center">
-        
-
+      <div className="flex justify-end p-5">
         <button
           onClick={() => setShowTransactionModal(true)}
-          className="flex items-center border border-dashed p-2 rounded-lg hover:bg-gray-100"
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
         >
           <FaPlus size={14} /><span className="pl-2">Add Transaction Info</span>
         </button>

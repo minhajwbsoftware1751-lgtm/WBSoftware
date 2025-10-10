@@ -67,23 +67,23 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
       <h1 className="text-center font-bold text-2xl mb-5">Company Info</h1>
 
       {/* Buttons */}
-      <div className="flex justify-center mb-5">
+      <div className="fflex justify-end p-5">
         <button
           onClick={() => setShowCompanyModal(true)}
-          className="flex items-center border border-dashed p-2 rounded-lg hover:bg-gray-100"
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
         >
           <FaPlus size={14} /><span className="pl-2">Add Company Info</span>
         </button>
 
-        
+
       </div>
 
-       <h1 className="text-center font-bold text-2xl mb-5">Customer Info</h1>
-      <div className="flex justify-center mb-5">
-        
+      <h1 className="text-center font-bold text-2xl mb-5">Customer Info</h1>
+      <div className="flex justify-end p-5">
+
         <button
           onClick={() => setShowCustomerModal(true)}
-          className="flex items-center border border-dashed p-2 rounded-lg hover:bg-gray-100"
+          className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-gray-100"
         >
           <FaPlus size={14} /><span className="pl-2">Add Customer Info</span>
         </button>
