@@ -1,6 +1,8 @@
 import { RiCloseLargeLine } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { FaArrowDown } from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 
 const ProductInfo = ({
     productData,
@@ -51,10 +53,15 @@ const ProductInfo = ({
         setEditingProduct(null);
         setNewProduct({ descriptions: "", total: "" });
     };
+    const [openSection, setOpenSection] = useState(null);
+
+    const toggleSection = (sectionName) => {
+        setOpenSection((prev) => (prev === sectionName ? null : sectionName));
+    };
 
     return (
         <div className="max-w-2xl p-5 pb-0">
-            <h1 className="text-left font-bold text-2xl">Product Information</h1>
+            {/* <h1 className="text-left font-bold text-2xl">Product Information</h1>
             <div className="flex justify-end p-5">
                 <button
                     onClick={() => setShowModal(true)}
@@ -62,7 +69,36 @@ const ProductInfo = ({
                 >
                     <FaPlus size={14} /> <h1 className="pl-2">Add Product Info</h1>
                 </button>
+            </div> */}
+
+            {/* Product Info Section */}
+            <div>
+                <h1
+                    onClick={() => toggleSection("product")}
+                    className="text-left font-bold text-2xl mb-3 cursor-pointer select-none flex justify-between items-center"
+                >
+                    Product Information
+                    <span>{openSection === "product" ? <FaArrowUp /> : <FaArrowDown />}</span>
+                </h1>
+
+                <div
+                    className={`transition-all duration-600 overflow-hidden ${openSection === "product" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                        }`}
+                >
+                    {openSection === "product" && (
+                        <div className="flex justify-end p-3 rounded-lg bg-gray-50">
+                            <button
+                                onClick={() => setShowModal(true)}
+                                className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
+                            >
+                                <FaPlus size={14} />
+                                <span className="pl-2">Add Product Info</span>
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
+
 
             {showModal && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">

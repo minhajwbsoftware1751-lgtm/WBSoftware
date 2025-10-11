@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
+import { FaArrowDown } from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 
 const BankInfo = ({ bankData, setBankData }) => {
   const [showBankModal, setShowBankModal] = useState(false);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
+  const [openSection, setOpenSection] = useState(null);
+
+  const toggleSection = (sectionName) => {
+    setOpenSection((prev) => (prev === sectionName ? null : sectionName));
+  };
 
   const [newBank, setNewBank] = useState({
     bankname: "",
@@ -14,10 +21,10 @@ const BankInfo = ({ bankData, setBankData }) => {
   });
 
   const [newTransaction, setNewTransaction] = useState({
-     bkash: "01774444000 (Personal)",
-      nagad: "01774444000 (Personal)",
-      rocket: "017744440005 (Personal)",
-      upay: "01774444000 (Personal)",
+    bkash: "01774444000 (Personal)",
+    nagad: "01774444000 (Personal)",
+    rocket: "017744440005 (Personal)",
+    upay: "01774444000 (Personal)",
   });
 
   const banks = [
@@ -69,7 +76,7 @@ const BankInfo = ({ bankData, setBankData }) => {
 
   return (
     <div className="max-w-2xl p-5 pb-0">
-      <h1 className="text-left font-bold text-2xl mb-5">Bank Information</h1>
+      {/* <h1 className="text-left font-bold text-2xl mb-5">Bank Information</h1>
       <div className="flex justify-end p-5">
         <button
           onClick={() => setShowBankModal(true)}
@@ -87,7 +94,63 @@ const BankInfo = ({ bankData, setBankData }) => {
         >
           <FaPlus size={14} /><span className="pl-2">Add Transaction Info</span>
         </button>
+      </div> */}
+      <div className="mb-6">
+        {/* Bank Info Section */}
+        <h1
+          onClick={() => toggleSection("bank")}
+          className="text-left font-bold text-2xl mb-3 cursor-pointer select-none flex justify-between items-center"
+        >
+          Bank Information
+          <span>{openSection === "bank" ? <FaArrowUp /> : <FaArrowDown />}</span>
+        </h1>
+
+        <div
+          className={`transition-all duration-600 overflow-hidden ${openSection === "bank" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+            }`}
+        >
+          {openSection === "bank" && (
+            <div className="flex justify-end p-3 rounded-lg bg-gray-50">
+              <button
+                onClick={() => setShowBankModal(true)}
+                className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
+              >
+                <FaPlus size={14} />
+                <span className="pl-2">Add Bank Info</span>
+              </button>
+            </div>
+          )}
+        </div>
       </div>
+
+      {/* Transaction Info Section */}
+      <div className="mb-6">
+        <h1
+          onClick={() => toggleSection("transaction")}
+          className="text-left font-bold text-2xl mb-3 cursor-pointer select-none flex justify-between items-center"
+        >
+          Transaction Information
+          <span>{openSection === "transaction" ? <FaArrowUp /> : <FaArrowDown />}</span>
+        </h1>
+
+        <div
+          className={`transition-all duration-600 overflow-hidden ${openSection === "transaction" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+            }`}
+        >
+          {openSection === "transaction" && (
+            <div className="flex justify-end p-3 rounded-lg bg-gray-50">
+              <button
+                onClick={() => setShowTransactionModal(true)}
+                className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
+              >
+                <FaPlus size={14} />
+                <span className="pl-2">Add Transaction Info</span>
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
 
 
       {showBankModal && (

@@ -1,11 +1,19 @@
 import { useState } from "react";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
+import { FaArrowDown } from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 
 const CompanyInfo = ({ companyData, setCompanyData }) => {
   const [showCompanyModal, setShowCompanyModal] = useState(false);
   const [showCustomerModal, setShowCustomerModal] = useState(false);
-  
+
+  const [openSection, setOpenSection] = useState(null);
+
+  const toggleSection = (sectionName) => {
+    setOpenSection((prev) => (prev === sectionName ? null : sectionName));
+  };
+
   const [newCompany, setNewCompany] = useState({
     name: "WB Software Ltd.",
     email: "wbsoftwaresteam@gmail.com",
@@ -64,9 +72,8 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
 
   return (
     <div className="max-w-2xl p-5 pb-0">
-      
-      <h1 className="text-left font-bold text-2xl mb-5">Company Info</h1>
-      {/* Buttons */}
+
+      {/* <h1 className="text-left font-bold text-2xl mb-5">Company Info</h1>
       <div className="fflex justify-end p-5">
         <button
           onClick={() => setShowCompanyModal(true)}
@@ -85,6 +92,54 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
         >
           <FaPlus size={14} /><span className="pl-2">Add Customer Info</span>
         </button>
+      </div> */}
+
+      {/* Company Info Section */}
+      <div className="mb-6">
+        <h1
+          onClick={() => toggleSection("company")}
+          className="text-left font-bold text-2xl mb-3 cursor-pointer select-none flex justify-between items-center"
+        >
+          Company Info
+          <span>{openSection === "company" ? <FaArrowUp /> : <FaArrowDown />}</span>
+        </h1>
+        <div
+          className={`transition-all duration-600 overflow-hidden ${openSection === "company" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
+          {openSection === "company" && (
+            <div className="flex justify-end p-3 rounded-lg bg-gray-50">
+              <button
+                onClick={() => setShowCompanyModal(true)}
+                className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
+              >
+                <FaPlus size={14} />
+                <span className="pl-2">Add Company Info</span>
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Customer Info Section */}
+      <div>
+        <h1
+          onClick={() => toggleSection("customer")}
+          className="text-left font-bold text-2xl mb-3 cursor-pointer select-none flex justify-between items-center"
+        >
+          Customer Info
+          <span>{openSection === "customer" ? <FaArrowUp /> : <FaArrowDown />}</span>
+        </h1>
+
+        {openSection === "customer" && (
+          <div className="flex justify-end p-3 rounded-lg bg-gray-50">
+            <button
+              onClick={() => setShowCustomerModal(true)}
+              className="w-full justify-center border border-dashed p-2 rounded-lg text-black flex items-center hover:bg-[#DBEAFE]"
+            >
+              <FaPlus size={14} />
+              <span className="pl-2">Add Customer Info</span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Company Modal */}
@@ -99,44 +154,44 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
 
             <div>
               <label className="flex flex-col mb-2">
-              Company Name:
-              <input type="text" value={newCompany.name} onChange={(e) => setNewCompany({ ...newCompany, name: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
-            </label>
+                Company Name:
+                <input type="text" value={newCompany.name} onChange={(e) => setNewCompany({ ...newCompany, name: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
+              </label>
 
-            
+
               <div className="flex justify-between gap-2">
                 <label className="flex flex-col mb-2">
-              Email:
-              <input type="email" value={newCompany.email} onChange={(e) => setNewCompany({ ...newCompany, email: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
-            </label>
+                  Email:
+                  <input type="email" value={newCompany.email} onChange={(e) => setNewCompany({ ...newCompany, email: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
+                </label>
 
-            <label className="flex flex-col mb-2">
-              Phone:
-              <input type="number" value={newCompany.phone} onChange={(e) => setNewCompany({ ...newCompany, phone: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
-            </label>
+                <label className="flex flex-col mb-2">
+                  Phone:
+                  <input type="number" value={newCompany.phone} onChange={(e) => setNewCompany({ ...newCompany, phone: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
+                </label>
 
               </div>
-            <label className="flex flex-col mb-2">
-              Address:
-              <input type="text" value={newCompany.address} onChange={(e) => setNewCompany({ ...newCompany, address: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
-            </label>
-
-            <div className="flex justify-between gap-2">
-              <label className="flex flex-col">
-                Invoice Date:
-                <input type="date" value={newCompany.date} onChange={(e) => setNewCompany({ ...newCompany, date: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
+              <label className="flex flex-col mb-2">
+                Address:
+                <input type="text" value={newCompany.address} onChange={(e) => setNewCompany({ ...newCompany, address: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
               </label>
 
-              <label className="flex flex-col">
-                Invoice ID:
-                <input type="number" value={newCompany.invoiceid} onChange={(e) => setNewCompany({ ...newCompany, invoiceid: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
-              </label>
-            </div>
+              <div className="flex justify-between gap-2">
+                <label className="flex flex-col">
+                  Invoice Date:
+                  <input type="date" value={newCompany.date} onChange={(e) => setNewCompany({ ...newCompany, date: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
+                </label>
 
-            <label className="flex flex-col mb-2">
-              Salesman:
-              <input type="text" value={newCompany.salesman} onChange={(e) => setNewCompany({ ...newCompany, salesman: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
-            </label>
+                <label className="flex flex-col">
+                  Invoice ID:
+                  <input type="number" value={newCompany.invoiceid} onChange={(e) => setNewCompany({ ...newCompany, invoiceid: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
+                </label>
+              </div>
+
+              <label className="flex flex-col mb-2">
+                Salesman:
+                <input type="text" value={newCompany.salesman} onChange={(e) => setNewCompany({ ...newCompany, salesman: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
+              </label>
             </div>
 
             <div className="flex justify-end gap-3 mt-4">
