@@ -14,6 +14,15 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
     setOpenSection((prev) => (prev === sectionName ? null : sectionName));
   };
 
+  const paymentOptions = [
+    { value: "Cash", label: "Cash" },
+    { value: "Card", label: "Card" },
+    { value: "Bank Transfer", label: "Bank Transfer" },
+    { value: "Bkash", label: "Bkash" },
+    { value: "Nagad", label: "Nagad" },
+    { value: "Rocket", label: "Rocket" },
+  ];
+
   const [newCompany, setNewCompany] = useState({
     name: "WB Software Ltd.",
     email: "wbsoftwaresteam@gmail.com",
@@ -248,15 +257,15 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
 
             <label className="flex flex-col mb-2">
               Payment Method:
-              <select value={newCustomer.paymentmethod} onChange={(e) => setNewCustomer({ ...newCustomer, paymentmethod: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10">
-                <option value="">Select a method</option>
-                <option value="Cash">Cash</option>
-                <option value="Card">Card</option>
-                <option value="Bank Transfer">Bank Transfer</option>
-                <option value="Bkash">Bkash</option>
-                <option value="Nagad">Nagad</option>
-                <option value="Rocket">Rocket</option>
-              </select>
+              <Select
+                options={paymentOptions}
+                value={paymentOptions.find(option => option.value === newCustomer.paymentmethod)}
+                onChange={(selectedOption) =>
+                  setNewCustomer({ ...newCustomer, paymentmethod: selectedOption.value })
+                }
+                isSearchable
+              />
+
             </label>
 
             <div className="flex justify-end gap-3 mt-4">
