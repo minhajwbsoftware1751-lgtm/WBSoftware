@@ -3,6 +3,7 @@ import { RiCloseLargeLine } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa";
+import Select from "react-select";
 
 const CompanyInfo = ({ companyData, setCompanyData }) => {
   const [showCompanyModal, setShowCompanyModal] = useState(false);
@@ -263,9 +264,9 @@ const CompanyInfo = ({ companyData, setCompanyData }) => {
                 onChange={(selectedOption) =>
                   setNewCustomer({ ...newCustomer, paymentmethod: selectedOption.value })
                 }
+                placeholder="Select a method"
                 isSearchable
               />
-
             </label>
 
             <div className="flex justify-end gap-3 mt-4">
