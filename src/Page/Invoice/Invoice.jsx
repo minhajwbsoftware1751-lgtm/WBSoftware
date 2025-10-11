@@ -191,7 +191,7 @@ const Invoice = () => {
                     <table className="min-w-full border-1 border-[#CBD5E1]">
                         <thead>
                             <tr className="bg-blue-100">
-                                <th colSpan={2} className="border-1 border-[#CBD5E1] px-4 py-2 w-[50%]">
+                                <th colSpan={2} className="border-1 text-[20] border-[#CBD5E1] px-4 py-2 w-[50%]">
                                     Company Information
                                 </th>
                                 <th colSpan={2} className="border-1 border-[#CBD5E1] px-4 py-2 w-[50%]">
@@ -235,11 +235,11 @@ const Invoice = () => {
                             </tr>
                             <tr>
                                 <td className="border-[#CBD5E1] px-4  text-left align-top">Address</td>
-                                <td className="border-[#CBD5E1] px-4  text-left break-words align-top">
+                                <td className="border-[#CBD5E1] px-4 pb-2 text-left break-words align-top">
                                     {companyData.address}
                                 </td>
                                 <td className="border-l-1 border-[#CBD5E1] px-4  text-left align-top">Address</td>
-                                <td className="border-[#CBD5E1] px-4  text-left break-words align-top">
+                                <td className="border-[#CBD5E1] px-4 pb-7 text-left break-words align-top">
                                     {companyData.customeraddress}
                                 </td>
                             </tr>
@@ -311,7 +311,7 @@ const Invoice = () => {
                                     <tr className="bg-blue-100">
                                         <th className="border-1 border-[#CBD5E1] w-1/12 py-2">Serial</th>
                                         <th className="border-1 border-[#CBD5E1] w-1/3 py-2">Descriptions</th>
-                                        <th className="border-1 border-[#CBD5E1] w-1/12 py-2">Total</th>
+                                        <th className="border-1 border-[#CBD5E1] w-1/12 py-2">Total (TAKA)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -358,7 +358,6 @@ const Invoice = () => {
                     </>
                 )}
 
-
                 {paymentDataList.length > 0 && (
                     <>
                         <h1 className="mt-3 text-2xl font-semibold text-red-500 text-center">
@@ -369,9 +368,9 @@ const Invoice = () => {
                                 <tr className="bg-blue-100">
                                     <th className="border-1 border-[#CBD5E1] w-1/12 py-2">SI</th>
                                     <th className="border-1 border-[#CBD5E1] w-2/12 py-2">Date</th>
-                                    <th className="border-1 border-[#CBD5E1] w-6/12 py-2">Details</th>
+                                    <th className="border-1 border-[#CBD5E1] w-5/12 py-2">Details</th>
                                     <th className="border-1 border-[#CBD5E1] w-2/12 py-2">Receive By</th>
-                                    <th className="border-1 border-[#CBD5E1] w-2/12 py-2">Amount</th>
+                                    <th className="border-1 border-[#CBD5E1] w-3/12 py-2">Amount (TAKA)</th>
                                 </tr>
                             </thead>
                             <tbody>
