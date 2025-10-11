@@ -134,9 +134,7 @@ const BankInfo = ({ bankData, setBankData }) => {
         </h1>
 
         <div
-          className={`transition-all duration-600 overflow-hidden ${openSection === "transaction" ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-            }`}
-        >
+          className={`transition-all duration-600 overflow-hidden ${openSection === "transaction" ? "max-h-40 opacity-100" : "max-h-0 opacity-0" }`}>
           {openSection === "transaction" && (
             <div className="flex justify-end p-3 rounded-lg bg-gray-50">
               <button
