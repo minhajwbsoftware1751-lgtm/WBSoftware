@@ -92,7 +92,7 @@ const BankInfo = ({ bankData, setBankData }) => {
 
       {showBankModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-          <div className="bg-white rounded-lg shadow-xl w-96 p-5 relative">
+          <div className="bg-white rounded-lg shadow-xl  w-96 p-5 relative">
             <button onClick={handleBankClose} className="absolute top-6 right-3 text-gray-700 hover:text-red-500">
               <RiCloseLargeLine size={22} />
             </button>
@@ -136,7 +136,7 @@ const BankInfo = ({ bankData, setBankData }) => {
 
       {showTransactionModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-          <div className="bg-white rounded-lg shadow-xl w-96 p-5 relative">
+          <div className="bg-white rounded-lg shadow-xl w-auto p-5 relative">
             <button onClick={handleTransactionClose} className="absolute top-6 right-3 text-gray-700 hover:text-red-500">
               <RiCloseLargeLine size={22} />
             </button>
@@ -146,7 +146,7 @@ const BankInfo = ({ bankData, setBankData }) => {
             <div className="grid grid-cols-2 gap-3">
               <label className="flex flex-col mb-2">
                 Bkash:
-                <input type="number" value={newTransaction.bkash} onChange={(e) => setNewTransaction({ ...newTransaction, bkash: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
+                <input type="text" value={newTransaction.bkash} onChange={(e) => setNewTransaction({ ...newTransaction, bkash: e.target.value })} className="border border-gray-300 p-1 rounded mt-1 h-10" />
               </label>
 
               <label className="flex flex-col mb-2">
